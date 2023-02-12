@@ -1,3 +1,10 @@
+#différent lien utiles 
+
+http://localhost/Projet_Web/test.php
+http://localhost/dashboard 
+       
+
+
 # FEUILLE DE ROUTE 
 
 -ajouter un fichier .js ( si on en a besoin)
