@@ -27,11 +27,6 @@
             width: 100%;
         }
 
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
     </style>
 </head>
 
