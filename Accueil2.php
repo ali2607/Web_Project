@@ -12,6 +12,32 @@
 
     <title>Bootstrap Example</title>
     <style>
+      .btn_start{
+        top:100px;
+        position:relative;
+        width:100px;
+        height:50px;
+      }
+
+      .bloc_color{
+        background-color:#55595c!important;
+      }
+
+      .bloc_jeux{
+        width:200px;
+        height:200px;
+        background-color:#99cdff;
+      }
+      
+      .center{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .logo_size{
+        width:80px;
+        height:80px;
+      }
 
     </style>
 </head>
@@ -54,10 +80,10 @@
   </nav>
 
   <!-- Bloc Gris-->
-<div class="bg-secondary text-center d-flex align-items-center py-5 mb-5 " style="height: 50vh">
+<div class="bg-secondary text-center d-flex align-items-center py-5 mb-5 bloc_color" style="height: 50vh">
     <div class="container">
       <h1 class="fw-light text-white ">Test your skills</h1>
-      <a class="btn btn-primary btn-lg" href="#">Start</a>
+      <a class="btn btn-primary btn-lg btn_start" href="#">Start</a>
     </div>
     
 </div>
@@ -66,32 +92,29 @@
 <div class="container">
   <div class="row justify-content-center">
     <!-- Team Member 1 -->
-    <div class="col-xl-3 col-md-6 mx-5">
-      <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
-        <div class="card-body text-center">
-          <h5 class="card-title mb-0">Countdown</h5>
-          <div class="card-text text-black-50">Web Developer</div>
+    <div class="d-flex align-items-center mx-5 bloc_jeux">
+      <div class="text-center center">
+        <img src="images\countdown.png" class="logo_size" alt="...">
+        <div class="text-center">
+          <h5 class="card-title">Countdown</h5>
         </div>
       </div>
     </div>
     <!-- Team Member 2 -->
-    <div class="col-xl-3 col-md-6 mx-5">
-      <div class=" border-0 shadow">
-        <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
+    <div class="d-flex align-items-center mx-5 bloc_jeux">
+      <div class="text-center center">
+        <img src="images\timer.png" class="logo_size" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Timer</h5>
-          <div class="card-text text-black-50">Web Developer</div>
         </div>
       </div>
     </div>
     <!-- Team Member 3 -->
-    <div class="col-xl-3 col-md-6 mx-5">
-      <div class="card border-0 shadow">
-        <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
+    <div class="d-flex align-items-center mx-5 bloc_jeux">
+      <div class="text-center center">
+        <img src="images\QTE.png" class="logo_size" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">QTE</h5>
-          <div class="card-text text-black-50">Web Developer</div>
         </div>
       </div>
     </div>
