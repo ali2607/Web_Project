@@ -8,7 +8,6 @@
   </head>
   <body>
 
-    <h1>Hello, world!</h1>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <?php
@@ -18,7 +17,8 @@
     $username = "root";
     $password = "";
     $dbname = "projet_web";
-
+    $pseudo = $_POST['floatingInput'];
+    $mdp = $_POST['floatingPassword'];
     $conn = mysqli_connect($host, $username, $password, $dbname);
 
     if (!$conn) {
@@ -26,15 +26,15 @@
     }
     echo "Connected to the database";
     // Enregistrement d'un nouvel utilisateur
-    if (isset($_POST["register"])) {
-        $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    if (isset($_POST["floatingInput"])) {
+        //$username = mysqli_real_escape_string($conn, $_POST["username"]);
+        //$password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-        $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+        $query = "INSERT INTO user (username, password) VALUES ('$pseudo', '$mdp')";
 
         if (mysqli_query($conn, $query)) {
             // Enregistrement réussi
-            header("Location: login.php");
+            header("Location: Login.php");
         } else {
             // Enregistrement échoué
             echo "Error: " . $query . "<br>" . mysqli_error($conn);

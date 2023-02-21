@@ -71,22 +71,18 @@
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Sign Up</h5>
-            <form>
+            <form action="SignUp_NewAccount.php" method="post">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control bloc_input" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <input name="floatingInput" type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
+                <label for="floatingInput">Username</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Username</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
+                <input name="floatingPassword" type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Confirm Password</label>
+                <input name="floatingCPassword" type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
+                <label for="floatingCPassword">Confirm Password</label>
               </div>
               <div class="d-grid">
                 <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign Up</button>
