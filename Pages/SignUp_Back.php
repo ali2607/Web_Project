@@ -30,14 +30,21 @@
         //$username = mysqli_real_escape_string($conn, $_POST["username"]);
         //$password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-        $query = "INSERT INTO user (username, password) VALUES ('$pseudo', '$mdp')";
+        if($_POST["floatingPassword"] != $_POST["floatingCPassword"] )
+        {
+            echo "Error: Password and confirmation password incorrect";
+        }
+        else
+        {
+            $query = "INSERT INTO user (username, password) VALUES ('$pseudo', '$mdp')";
 
-        if (mysqli_query($conn, $query)) {
-            // Enregistrement réussi
-            header("Location: Login.php");
-        } else {
-            // Enregistrement échoué
-            echo "Error: " . $query . "<br>" . mysqli_error($conn);
+            if (mysqli_query($conn, $query)) {
+                // Enregistrement réussi
+                header("Location: Login.php");
+            } else {
+                // Enregistrement échoué
+                echo "Error: " . $query . "<br>" . mysqli_error($conn);
+            }
         }
     }
 
