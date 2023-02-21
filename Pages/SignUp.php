@@ -71,7 +71,7 @@
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Sign Up</h5>
-            <form action="SignUp_NewAccount.php" method="post">
+            <form action="SignUp_Back.php" method="post">
               <div class="form-floating mb-3">
                 <input name="floatingInput" type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
                 <label for="floatingInput">Username</label>
