@@ -74,8 +74,8 @@
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Login</h5>
             <form>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control bloc_input" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <input type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
+                <label for="floatingInput">Username</label>
               </div>
               <div class="form-floating mb-3">
                 <input type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
