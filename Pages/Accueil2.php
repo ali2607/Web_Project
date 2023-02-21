@@ -47,7 +47,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="https://cdn.discordapp.com/attachments/888765508042768445/1076895997147492412/logo.png" alt="..." height="30">
+        <img src="..\images\logo.png" alt="..." height="30">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -72,8 +72,8 @@
           </li> -->
         </ul>
         <div class="form-inline ms-auto">
-            <a class="btn btn-outline-light btn-sm mx-2" href="#">Login</a>
-            <a class="btn btn-primary btn-sm" href="#">Sign Up</a>
+            <a class="btn btn-outline-light btn-sm mx-2" href="Login.php">Login</a>
+            <a class="btn btn-primary btn-sm" href="SignUp.php">Sign Up</a>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@
     <!-- Team Member 1 -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
-        <img src="images\countdown.png" class="logo_size" alt="...">
+        <img src="..\images\countdown.png" class="logo_size" alt="...">
         <div class="text-center">
           <h5 class="card-title">Countdown</h5>
         </div>
@@ -103,7 +103,7 @@
     <!-- Team Member 2 -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
-        <img src="images\timer.png" class="logo_size" alt="...">
+        <img src="..\images\timer.png" class="logo_size" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Timer</h5>
         </div>
@@ -112,7 +112,7 @@
     <!-- Team Member 3 -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
-        <img src="images\QTE.png" class="logo_size" alt="...">
+        <img src="..\images\QTE.png" class="logo_size" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">QTE</h5>
         </div>
