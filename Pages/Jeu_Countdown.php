@@ -31,8 +31,6 @@
         width:200px;
         height:200px;
         background-color:#99cdff;
-        color:inherit;
-        text-decoration:none;
       }
       
       .center{
@@ -52,7 +50,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="Accueildeco.php">
         <img src="..\images\logo.png" alt="..." height="30">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -61,7 +59,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Dashboard</a>
+            <a class="nav-link" href="Login.php">Dashboard</a>
           </li>
           <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,23 +97,23 @@
   <!-- Bloc Gris-->
 <div class="bg-secondary text-center d-flex align-items-center py-5 mb-5 bloc_color" style="height: 50vh">
     <div class="container">
-      <h1 class="fw-light text-white ">Test your skills</h1>
-      <a class="btn btn-primary btn-lg btn_start" href="#">Start</a>
-    </div>    
+      <h1 class="fw-light text-white ">Countdown</h1>
+    </div>
+    
 </div>
 
   <!-- Bloc Jeux-->
 <div class="container">
   <div class="row justify-content-center">
     <!-- Team Member 1 -->
-    <a class="d-flex align-items-center mx-5 bloc_jeux" href="Jeu_Countdown.php">
+    <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
         <img src="..\images\countdown.png" class="logo_size" alt="...">
         <div class="text-center">
           <h5 class="card-title">Countdown</h5>
         </div>
       </div>
-    </a>
+    </div>
     <!-- Team Member 2 -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">

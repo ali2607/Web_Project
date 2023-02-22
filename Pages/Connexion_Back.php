@@ -17,20 +17,21 @@
     $username = "root";
     $password = "";
     $dbname = "projet_web";
-    $pseudo = $_POST['floatingInput'];
-    $mdp = $_POST['floatingPassword'];
     $conn = mysqli_connect($host, $username, $password, $dbname);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
     echo "Connected to the database";
+
     // Enregistrement d'un nouvel utilisateur
-    if (isset($_POST["floatingInput"])) {
+    if (isset($_POST["SignUp_Username"]) && isset($_POST["SignUp_Password"])) {
+        $pseudo = $_POST['SignUp_Username'];
+        $mdp = $_POST['SignUp_Password'];
         //$username = mysqli_real_escape_string($conn, $_POST["username"]);
         //$password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-        if($_POST["floatingPassword"] != $_POST["floatingCPassword"] )
+        if($_POST["SignUp_Password"] != $_POST["SignUp_ConfirmPassword"] )
         {
             echo "Error: Password and confirmation password incorrect";
         }
@@ -49,19 +50,21 @@
     }
 
     // Connexion d'un utilisateur existant
-    if (isset($_POST["login"])) {
-        $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    if (isset($_POST["Login_Username"])  && isset($_POST["Login_Password"])) {
+        $pseudo = $_POST['Login_Username'];
+        $mdp = $_POST['Login_Password'];
+        //$username = mysqli_real_escape_string($conn, $_POST["username"]);
+        //$password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-        $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $query = "SELECT * FROM user WHERE username = '$pseudo' AND password = '$mdp'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) == 1) {
             // Connexion réussie
             session_start();
             $_SESSION["logged_in"] = true;
-            $_SESSION["username"] = $username;
-            header("Location: index.php");
+            $_SESSION["username"] = $pseudo;
+            header("Location: Accueildeco.php");
         } else {
             // Connexion échouée
             echo "Incorrect username or password";
@@ -70,9 +73,9 @@
 
     // Déconnexion d'un utilisateur
     if (isset($_GET["logout"])) {
-        session_start();
+        //session_start();
         session_destroy();
-        header("Location: login.php");
+        header("Location: Accueildeco.php");
     }
 
     mysqli_close($conn);

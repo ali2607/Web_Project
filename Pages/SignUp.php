@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -43,7 +47,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="Accueil2.php">
+      <a class="navbar-brand" href="Accueildeco.php">
         <img src="..\images\logo.png" alt="..." height="30">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,8 +60,8 @@
           </li>
         </ul>
         <div class="form-inline ms-auto">
-            <a class="btn btn-outline-light btn-sm mx-2" href="Login.php">Login</a>
-            <a class="btn btn-primary btn-sm" href="#">Sign Up</a>
+              <a class="btn btn-outline-light btn-sm mx-2" href="Login.php">Login</a>
+              <a class="btn btn-primary btn-sm" href="SignUp.php">Sign Up</a>            
         </div>
       </div>
     </div>
@@ -71,18 +75,18 @@
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Sign Up</h5>
-            <form action="SignUp_Back.php" method="post">
+            <form action="Connexion_Back.php" method="post">
               <div class="form-floating mb-3">
-                <input name="floatingInput" type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
-                <label for="floatingInput">Username</label>
+                <input name="SignUp_Username" type="text" class="form-control bloc_input" id="SignUp_Username" placeholder="Username">
+                <label for="SignUp_Username">Username</label>
               </div>
               <div class="form-floating mb-3">
-                <input name="floatingPassword" type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input name="SignUp_Password" type="password" class="form-control bloc_input" id="SignUp_Password" placeholder="Password">
+                <label for="SignUp_Password">Password</label>
               </div>
               <div class="form-floating mb-3">
-                <input name="floatingCPassword" type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
-                <label for="floatingCPassword">Confirm Password</label>
+                <input name="SignUp_ConfirmPassword" type="password" class="form-control bloc_input" id="SignUp_ConfirmPassword" placeholder="Password">
+                <label for="SignUp_ConfirmPassword">Confirm Password</label>
               </div>
               <div class="d-grid">
                 <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign Up</button>

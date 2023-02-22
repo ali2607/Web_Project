@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){
+  session_destroy();
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -44,7 +51,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="Accueil2.php">
+      <a class="navbar-brand" href="Accueildeco.php">
         <img src="..\images\logo.png" alt="..." height="30">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -58,7 +65,7 @@
         </ul>
         <div class="form-inline ms-auto">
             <a class="btn btn-outline-light btn-sm mx-2" href="Login.php">Login</a>
-            <a class="btn btn-primary btn-sm" href="SignUp.php">Sign Up</a>
+            <a class="btn btn-primary btn-sm" href="SignUp.php">Sign Up</a>          
         </div>
       </div>
     </div>
@@ -72,16 +79,15 @@
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Login</h5>
-            <form>
+            <form action="Connexion_Back.php" method="post">
               <div class="form-floating mb-3">
-                <input type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
-                <label for="floatingInput">Username</label>
+                <input name="Login_Username" type="text" class="form-control bloc_input" id="Login_Username" placeholder="Username">
+                <label for="Login_Username">Username</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input name="Login_Password" type="password" class="form-control bloc_input" id="Login_Password" placeholder="Password">
+                <label for="Login_Password">Password</label>
               </div>
-
               <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                 <label class="form-check-label" for="rememberPasswordCheck">
