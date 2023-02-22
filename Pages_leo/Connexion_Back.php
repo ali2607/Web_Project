@@ -64,7 +64,7 @@
             session_start();
             $_SESSION["logged_in"] = true;
             $_SESSION["username"] = $pseudo;
-            header("Location: Accueildeco.php");
+            header("Location: Accueil.php");
         } else {
             // Connexion échouée
             echo "Incorrect username or password";
@@ -75,7 +75,7 @@
     if (isset($_GET["logout"])) {
         //session_start();
         session_destroy();
-        header("Location: Accueildeco.php");
+        header("Location: Accueil.php");
     }
 
     mysqli_close($conn);

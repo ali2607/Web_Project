@@ -27,16 +27,6 @@
         padding: 0.75rem 1rem;
       }
 
-      .btn-google {
-        color: white !important;
-        background-color: #ea4335;
-      }
-
-      .btn-facebook {
-        color: white !important;
-        background-color: #3b5998;
-      }   
-
       .bloc_input{
         background-color:#eeeeee;
       }
@@ -47,7 +37,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="Accueildeco.php">
+      <a class="navbar-brand" href="Accueil.php">
         <img src="..\images\logo.png" alt="..." height="30">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
