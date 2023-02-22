@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION["logged_in"]))
+{
+    header("Location: Accueilco.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION["logged_in"]))
+{
+    header("Location: Accueilco.php");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -72,13 +80,13 @@
         <div class="card border-0 shadow rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Login</h5>
-            <form>
+            <form action="Login_Back.php" method="post">
               <div class="form-floating mb-3">
-                <input type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
+                <input name="floatingInput" type="username" class="form-control bloc_input" id="floatingInput" placeholder="Username">
                 <label for="floatingInput">Username</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
+                <input name="password" type="password" class="form-control bloc_input" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>
 
@@ -91,11 +99,11 @@
               <div class="d-grid">
                 <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Login</button>
               </div>
-              <hr class="my-4">
-              <div class="d-grid">
-                <a class="btn btn-dark btn-login text-uppercase fw-bold" type="submit" href="SignUp.php">Not registered? Create an account</a>
-              </div>
             </form>
+            <hr class="my-4">
+            <div class="d-grid">
+              <a class="btn btn-dark btn-login text-uppercase fw-bold" href="SignUp.php">Not registered? Create an account</a>
+            </div>          
           </div>
         </div>
       </div>
