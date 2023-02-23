@@ -108,7 +108,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <!-- Team Member 1 -->
-    <a class="d-flex align-items-center mx-5 bloc_jeux" href="Jeu_Countdown.php">
+    <a class="d-flex align-items-center mx-5 bloc_jeux" href="Jeu_Timer.php">
       <div class="text-center center">
         <img src="..\images\countdown.png" class="logo_size" alt="...">
         <div class="text-center">
