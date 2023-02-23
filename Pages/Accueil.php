@@ -33,6 +33,11 @@
         background-color:#99cdff;
         color:inherit;
         text-decoration:none;
+        transition: transform 0.5s;
+      }
+
+      .bloc_jeux:hover{
+        transform: translateY(-10px);
       }
       
       .center{
@@ -107,8 +112,8 @@
   <!-- Bloc Jeux-->
 <div class="container">
   <div class="row justify-content-center">
-    <!-- Team Member 1 -->
-    <a class="d-flex align-items-center mx-5 bloc_jeux" href="Jeu_Timer.php">
+    <!-- Countdown -->
+    <a class="d-flex align-items-center mx-5 bloc_jeux" href="Jeu_Countdown.php">
       <div class="text-center center">
         <img src="..\images\countdown.png" class="logo_size" alt="...">
         <div class="text-center">
@@ -116,24 +121,24 @@
         </div>
       </div>
     </a>
-    <!-- Team Member 2 -->
-    <div class="d-flex align-items-center mx-5 bloc_jeux">
+    <!-- Timer -->
+    <a class="d-flex align-items-center mx-5 bloc_jeux" href="Jeu_Timer.php">
       <div class="text-center center">
         <img src="..\images\timer.png" class="logo_size" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">Timer</h5>
         </div>
       </div>
-    </div>
-    <!-- Team Member 3 -->
-    <div class="d-flex align-items-center mx-5 bloc_jeux">
+          </a>
+    <!-- QTE -->
+    <a class="d-flex align-items-center mx-5 bloc_jeux" href="#">
       <div class="text-center center">
         <img src="..\images\QTE.png" class="logo_size" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title mb-0">QTE</h5>
         </div>
       </div>
-    </div>
+          </a>
   <!-- /.row -->
 
 </div>

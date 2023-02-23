@@ -61,19 +61,6 @@
           <li class="nav-item">
             <a class="nav-link" href="Login.php">Dashboard</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Profil</a></li>
-              <li><a class="dropdown-item" href="#">Personal Records</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
         </ul>
         <div class="form-inline ms-auto">
             <?php
@@ -105,7 +92,7 @@
   <!-- Bloc Jeux-->
 <div class="container">
   <div class="row justify-content-center">
-    <!-- Team Member 1 -->
+    <!-- Countdown -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
         <img src="..\images\countdown.png" class="logo_size" alt="...">
@@ -114,7 +101,7 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 2 -->
+    <!-- Timer -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
         <img src="..\images\timer.png" class="logo_size" alt="...">
@@ -123,7 +110,7 @@
         </div>
       </div>
     </div>
-    <!-- Team Member 3 -->
+    <!-- QTE -->
     <div class="d-flex align-items-center mx-5 bloc_jeux">
       <div class="text-center center">
         <img src="..\images\QTE.png" class="logo_size" alt="...">
