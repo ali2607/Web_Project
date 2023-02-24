@@ -1,7 +1,7 @@
 #différent lien utiles 
 
 http://localhost/Projet_Web/test.php
-http://localhost/dashboard 
+http://localhost/Projet_Web/Pages/Accueil.php 
        
 
 
