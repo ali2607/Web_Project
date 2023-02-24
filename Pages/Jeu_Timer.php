@@ -85,8 +85,6 @@
     </div>
   </nav>
 
-<!-- Bloc Gris-->
-
 <script>
     var startTime;
     var timer; 
@@ -168,6 +166,8 @@
     }
 
 </script>
+
+<!-- Bloc Gris-->
 <div class="bg-secondary text-center d-flex align-items-center py-5 mb-5 bloc_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
