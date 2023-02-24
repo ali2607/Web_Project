@@ -105,7 +105,7 @@
 <div class="bg-secondary text-center d-flex align-items-center py-5 mb-5 bloc_color" style="height: 50vh">
     <div class="container">
       <h1 class="fw-light text-white ">Test your skills</h1>
-      <a class="btn btn-primary btn-lg btn_start" href="#">Start</a>
+      <a class="btn btn-primary btn-lg btn_start" href="Jeu_Countdown.php">Start</a>
     </div>    
 </div>
 
