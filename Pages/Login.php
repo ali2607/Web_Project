@@ -48,7 +48,7 @@ if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
-            <a class="nav-link active" aria-current="page" href="">Home</a>
+            <a class="nav-link" aria-current="page" href="Accueil.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Dashboard</a>
