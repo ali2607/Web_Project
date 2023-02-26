@@ -50,7 +50,7 @@
             <?php
             if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){?>
               <label class="text-light mx-3" ><?php echo "Hello ".$_SESSION["username"];?></label>
-              <a class="btn btn-outline-light btn-sm" href="Login.php">Logout</a>
+              <a class="btn btn-outline-light btn-sm" href="../Login.php">Logout</a>
               <?php
             }
             else{
@@ -84,10 +84,10 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link active" href="CountdownDashboard.php">Countdown</a>
                                     <a class="nav-link" href="TimerDashboard.php">Timer</a>
-                                    <a class="nav-link" href="layout-static.html">Jeux 1</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Jeux 2</a>
-                                    <a class="nav-link" href="layout-static.html">Jeux 3</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Jeux 4</a>
+                                    <a class="nav-link" href="#">Jeux 1</a>
+                                    <a class="nav-link" href="#">Jeux 2</a>
+                                    <a class="nav-link" href="#">Jeux 3</a>
+                                    <a class="nav-link" href="#">Jeux 4</a>
                                 </nav>
                             </div>
 
