@@ -46,6 +46,90 @@
       .bloc_color{
         background-color:#55595c!important;
       }
+
+      .bloc_jeux{
+        width:375px;
+        height:175px;
+        background-color:#99cdff;
+        color:inherit;
+        text-decoration:none;
+        margin-left:75px;
+        margin-right:75px;
+        margin-top:50px;
+        margin-bottom:100px;
+      }
+
+      .bloc_jeux2{
+        width:900px;
+        height:175px;
+        background-color:#99cdff;
+        color:inherit;
+        text-decoration:none;
+        transition: transform 0.5s;
+        margin-left:75px;
+        margin-right:75px;
+        margin-bottom:100px;        
+      }
+
+      .center{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .title_score{
+        position:relative;
+        bottom:40px;
+        right:150px;
+        font-size:30px;
+      }
+
+      .title_pr{
+        position:relative;
+        bottom:30px;
+        right:115px;
+        font-size:17px;
+      }
+
+      .title_cd{
+        position:relative;
+        top:7px;
+        font-size:40px;
+      }
+
+      .title_ldb{
+        position:relative;
+        top:5px;
+        right:5px;
+        font-size:17px;
+      }
+
+      .title_top{
+        position:relative;
+        top:20px;
+        left:10px;
+        font-size:22px;
+      }
+
+      .title_rank{
+        position:relative;
+        vertical-align: middle;
+        left:60px;
+        bottom:30px;
+        font-size:30px;
+      }
+
+      .title_rules{
+        position:relative;
+        bottom:40px;
+        right:13px;
+        font-size:30px;        
+      }
+
+      .title_text{
+        font-size:17px;
+        position:relative;
+        bottom:25px;
+      }
       
     </style>
 </head>
@@ -167,17 +251,56 @@
 
 </script>
 
-<!-- Bloc Gris-->
-<div class="bg-secondary text-center d-flex align-items-center py-5 mb-5 bloc_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
+  <!-- Bloc Gris-->
+  <div class="text-center d-flex align-items-center py-5 mb-5 bloc_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
-      <h1 class="fw-light text-white btn_timer" id="timer">Timer</h1>
+      <h1 class="fw-light text-white btn_timer" id="timer">Countdown</h1>
       <p class="fw-light text-white btn_result" id="result">You were x seconds away from the target time.</p>
       <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
     </div>    
-</div>
+  </div>
 
+   <!-- Bloc Jeux-->
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- Personal Record -->
+    <a class="bloc_jeux" href="Jeu_Countdown.php">
+      <div class="text-center center">
+          <h5 class="card-title title_score">Score</h5>
+          <h5 class="card-title title_pr">Personal record :</h5>
+          <h5 class="card-title title_cd">Temps</h5>
+      </div>
+    </a>
+    <!-- Leaderboard -->
+    <div class="bloc_jeux" href="Jeu_Timer.php">
+      <h5 class="card-title title_ldb">Leaderboard :</h5> 
+      <h5 class="card-title title_top">1. Pierre</h5> 
+      <h5 class="card-title title_top">2. Paul</h5> 
+      <h5 class="card-title title_top">3. Jacques</h5> 
+      <div class="text-center center">
+        <h5 class="card-title title_rank">Rank. Moi</h5>  
+      </div>
+    </div>  
+
+    <!-- Rules -->
+    <div class="bloc_jeux2" href="Jeu_Countdown.php">
+        <div class="">
+            <h5 class="card-title title_rules">Rules</h5>
+            <h5 class="card-title title_text">Timer test is a simple tool to measure your ability to </h5>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="bloc_jeux2" href="Jeu_Countdown.php">
+        <div class="">
+            <h5 class="card-title title_rules">Statistics</h5>
+            <h5 class="card-title title_text"></h5>
+        </div>
+    </div>
+  </div>
 </div>
+  <!-- /.row -->
 <!-- /.container -->
 
 </body></html>
