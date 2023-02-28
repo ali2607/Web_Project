@@ -28,8 +28,6 @@
     if (isset($_POST["SignUp_Username"]) && isset($_POST["SignUp_Password"])) {
         $pseudo = $_POST['SignUp_Username'];
         $mdp = $_POST['SignUp_Password'];
-        //$username = mysqli_real_escape_string($conn, $_POST["username"]);
-        //$password = mysqli_real_escape_string($conn, $_POST["password"]);
 
         if($_POST["SignUp_Password"] != $_POST["SignUp_ConfirmPassword"] )
         {
@@ -53,8 +51,6 @@
     if (isset($_POST["Login_Username"])  && isset($_POST["Login_Password"])) {
         $pseudo = $_POST['Login_Username'];
         $mdp = $_POST['Login_Password'];
-        //$username = mysqli_real_escape_string($conn, $_POST["username"]);
-        //$password = mysqli_real_escape_string($conn, $_POST["password"]);
 
         $query = "SELECT * FROM user WHERE username = '$pseudo' AND password = '$mdp'";
         $result = mysqli_query($conn, $query);
@@ -62,8 +58,14 @@
         if (mysqli_num_rows($result) == 1) {
             // Connexion réussie
             session_start();
-            $_SESSION["logged_in"] = true;
-            $_SESSION["username"] = $pseudo;
+            // Récupérer une seule ligne
+            while ($row = mysqli_fetch_row($result)) {
+                $_SESSION["logged_in"] = true;
+                $_SESSION["idUser"] = $row[0];
+                $_SESSION["username"] = $row[1];
+            }
+            mysqli_free_result($result);
+
             header("Location: Accueil.php");
         } else {
             // Connexion échouée

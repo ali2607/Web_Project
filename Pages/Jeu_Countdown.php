@@ -1,5 +1,16 @@
 <?php
   session_start();
+  // if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){
+  //   $idJoueur = $_SESSION['idUser'];
+  //   $query = "SELECT personalBest FROM score WHERE idUser = '$idJoueur'";
+  //   $result = mysqli_query($conn, $query);
+
+  //   while ($row = mysqli_fetch_row($result)) {
+  //     $personalBest = $row[0];
+  // }
+  // echo $personalBest;
+  // mysqli_free_result($result);
+  //}
 ?>
 
 <!doctype html>
@@ -206,6 +217,12 @@
 
             var result = document.getElementById("result");
             result.innerHTML = "You were <b>" + ecart.toFixed(2) + "</b> seconds away from the target time.";
+            console.log(ecart.toFixed(2));
+            console.log(document.getElementById("personalBest").innerHTML);
+            if (ecart.toFixed(2) < Number(document.getElementById("personalBest").innerHTML)) {
+              document.getElementById("personalBest").innerHTML = ecart.toFixed(2);
+            }
+            
             result.style.opacity = 100; 
             var retry = document.getElementById("retry");
             retry.innerHTML = "Click to retry";
@@ -282,7 +299,7 @@
       <div class="text-center center">
           <h5 class="card-title title_score">Score</h5>
           <h5 class="card-title title_pr">Personal record :</h5>
-          <h5 class="card-title title_cd">Temps</h5>
+          <h5 class="card-title title_cd" id="personalBest">10<?php //echo $personalBest; ?></h5>
       </div>
     </a>
     <!-- Leaderboard -->
