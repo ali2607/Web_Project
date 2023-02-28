@@ -144,7 +144,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" aria-current="page" href="Accueil.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Login.php">Dashboard</a>
@@ -255,7 +255,7 @@
   <div class="text-center d-flex align-items-center py-5 mb-5 bloc_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
-      <h1 class="fw-light text-white btn_timer" id="timer">Countdown</h1>
+      <h1 class="fw-light text-white btn_timer" id="timer">Timer</h1>
       <p class="fw-light text-white btn_result" id="result">You were x seconds away from the target time.</p>
       <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
     </div>    
@@ -265,7 +265,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <!-- Personal Record -->
-    <a class="bloc_jeux" href="Jeu_Countdown.php">
+    <a class="bloc_jeux" href="Jeu_Timer.php">
       <div class="text-center center">
           <h5 class="card-title title_score">Score</h5>
           <h5 class="card-title title_pr">Personal record :</h5>
