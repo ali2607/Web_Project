@@ -18,6 +18,7 @@
     
     // Enregistrement d'un meilleur score
     function SaveNewRecord(){
+        include('../database/db.php');
         if (isset($_SESSION["logged_in"]) && isset($_POST["score"])){
             $score = $_POST['score'];
             $idJoueur = $_SESSION['idUser'];
@@ -26,7 +27,5 @@
             echo $result;
           }
     }    
-
-
 
 ?>
