@@ -22,7 +22,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="../Accueil.php">
-        <img src="../../images/logo.png" alt="..." height="30">
+        <img src="../../image/logo.png" alt="..." height="30">
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -70,19 +70,19 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Dashboard</div>
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Games</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed active" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-gamepad"></i></div> 
                                 Games
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="CountdownDashboard.php">Countdown</a>
+                                    <a class="nav-link active" href="CountdownDashboard.php">Countdown</a>
                                     <a class="nav-link" href="TimerDashboard.php">Timer</a>
                                     <a class="nav-link" href="#">Jeux 1</a>
                                     <a class="nav-link" href="#">Jeux 2</a>
@@ -101,9 +101,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Countdown</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Here you can find your place in the leaderboard</li>
+                            <li class="breadcrumb-item active">Here are all your stats when it comes to the Countdown game</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">

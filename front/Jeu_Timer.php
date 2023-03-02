@@ -1,173 +1,8 @@
 <?php
   session_start();
+
+  include('head.php');
 ?>
-
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
-    <title>Bootstrap Example</title>
-    <style>
-      .btn_target{
-        top:-110px;
-        position:relative;
-        font-size:30px;
-        opacity:0;
-      }
-
-      .btn_timer{
-        top:0px;
-        position:relative;
-        font-size:50px;
-      }
-
-      .btn_result{
-        top:0px;
-        position:relative;
-        font-size:15px;
-        opacity:0;
-      }
-
-      .btn_retry{
-        top:80px;
-        position:relative;
-        font-size:20px;
-        opacity:100;
-      }
-
-      .bloc_color{
-        background-color:#55595c!important;
-      }
-
-      .bloc_jeux{
-        width:375px;
-        height:175px;
-        background-color:#99cdff;
-        color:inherit;
-        text-decoration:none;
-        margin-left:75px;
-        margin-right:75px;
-        margin-top:50px;
-        margin-bottom:100px;
-      }
-
-      .bloc_jeux2{
-        width:900px;
-        height:175px;
-        background-color:#99cdff;
-        color:inherit;
-        text-decoration:none;
-        transition: transform 0.5s;
-        margin-left:75px;
-        margin-right:75px;
-        margin-bottom:100px;        
-      }
-
-      .center{
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .title_score{
-        position:relative;
-        bottom:40px;
-        right:150px;
-        font-size:30px;
-      }
-
-      .title_pr{
-        position:relative;
-        bottom:30px;
-        right:115px;
-        font-size:17px;
-      }
-
-      .title_cd{
-        position:relative;
-        top:7px;
-        font-size:40px;
-      }
-
-      .title_ldb{
-        position:relative;
-        top:5px;
-        right:5px;
-        font-size:17px;
-      }
-
-      .title_top{
-        position:relative;
-        top:20px;
-        left:10px;
-        font-size:22px;
-      }
-
-      .title_rank{
-        position:relative;
-        vertical-align: middle;
-        left:60px;
-        bottom:30px;
-        font-size:30px;
-      }
-
-      .title_rules{
-        position:relative;
-        bottom:40px;
-        right:13px;
-        font-size:30px;        
-      }
-
-      .title_text{
-        font-size:17px;
-        position:relative;
-        bottom:25px;
-      }
-      
-    </style>
-</head>
-
-<body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-      <a class="navbar-brand" href="Accueil.php">
-        <img src="..\images\logo.png" alt="..." height="30">
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item ">
-            <a class="nav-link" aria-current="page" href="Accueil.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Login.php">Dashboard</a>
-          </li>
-        </ul>
-        <div class="form-inline ms-auto">
-            <?php
-            if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){?>
-              <label class="text-light mx-3" ><?php echo "Hello ".$_SESSION["username"];?></label>
-              <a class="btn btn-outline-light btn-sm" href="Login.php">Logout</a>
-              <?php
-            }
-            else{
-              ?>
-              <a class="btn btn-outline-light btn-sm mx-2" href="Login.php">Login</a>
-              <a class="btn btn-primary btn-sm" href="SignUp.php">Sign Up</a>
-              <?php
-            }
-            ?>            
-        </div>
-      </div>
-    </div>
-  </nav>
 
 <script>
     var startTime;
@@ -245,14 +80,47 @@
             
             if (!stop) {
                 document.getElementById("timer").innerHTML = seconds + "." + milliseconds;
-            }
-            
+            }            
     }
-
 </script>
 
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="Accueil.php">
+        <img src="..\image\logo.png" alt="..." height="30">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" aria-current="page" href="Accueil.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Dashboard\index.php">Dashboard</a>
+          </li>
+        </ul>
+        <div class="form-inline ms-auto">
+            <?php
+            if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){?>
+              <label class="text-light mx-3" ><?php echo "Hello ".$_SESSION["username"];?></label>
+              <a class="btn btn-outline-light btn-sm" href="../back/Authentification_fct.php?action=logout">Logout</a>
+              <?php
+            }
+            else{
+              ?>
+              <a class="btn btn-outline-light btn-sm mx-2" href="Login.php">Login</a>
+              <a class="btn btn-primary btn-sm" href="SignUp.php">Sign Up</a>
+              <?php
+            }
+            ?>            
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <!-- Bloc Gris-->
-  <div class="text-center d-flex align-items-center py-5 mb-5 bloc_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
+  <div class="text-center d-flex align-items-center py-5 mb-5 fond_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
       <h1 class="fw-light text-white btn_timer" id="timer">Timer</h1>
@@ -265,7 +133,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <!-- Personal Record -->
-    <a class="bloc_jeux" href="Jeu_Timer.php">
+    <a class="bloc_jeux1" href="Jeu_Countdown.php">
       <div class="text-center center">
           <h5 class="card-title title_score">Score</h5>
           <h5 class="card-title title_pr">Personal record :</h5>
@@ -273,7 +141,7 @@
       </div>
     </a>
     <!-- Leaderboard -->
-    <div class="bloc_jeux" href="Jeu_Timer.php">
+    <div class="bloc_jeux1" href="Jeu_Timer.php">
       <h5 class="card-title title_ldb">Leaderboard :</h5> 
       <h5 class="card-title title_top">1. Pierre</h5> 
       <h5 class="card-title title_top">2. Paul</h5> 
