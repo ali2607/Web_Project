@@ -19,9 +19,14 @@
     {
         include('../database/db.php');
 
-        echo $_POST["SignUp_Username"];
-
-        if (isset($_POST["SignUp_Username"]) && isset($_POST["SignUp_Password"])) {
+        //echo $_POST["SignUp_Username"];
+        if (empty($_POST["SignUp_Username"])) {
+        echo "Error: username empty";
+    }
+    else if (empty($_POST["SignUp_Password"])) {
+        echo "Error: pass empty";
+    }
+        else if (isset($_POST["SignUp_Username"]) && isset($_POST["SignUp_Password"])) {
             $pseudo = $_POST['SignUp_Username'];
             $mdp = $_POST['SignUp_Password'];
     
