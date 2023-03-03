@@ -14,6 +14,8 @@
             break;
     }
 
+
+
     // Enregistrement d'un nouvel utilisateur
     function SignUp()
     {
@@ -76,9 +78,12 @@
     
                 header("Location: ../front/Accueil.php");
             } else {
-                // Connexion échouée
-                echo "Incorrect username or password";
+            // Connexion échouée
+            session_start();
+            $_SESSION['errormsg'] = "Incorrect username or password";
+            header("Location: ../front/Login.php");
             }
+
         }
 
         mysqli_close($conn);
