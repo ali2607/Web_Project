@@ -17,15 +17,16 @@
     }
     
     // Enregistrement d'un meilleur score
-    function SaveNewRecord(){
+  
+    function SaveNewRecord($score){
         include('../database/db.php');
-        if (isset($_SESSION["logged_in"]) && isset($_POST["score"])){
-            $score = $_POST['score'];
-            $idJoueur = $_SESSION['idUser'];
-            $query = "SELECT personalBest FROM score WHERE idUser = '$idJoueur'";
-            $result = mysqli_query($conn, $query);
-            echo $result;
-          }
-    }    
+        if (isset($_SESSION["logged_in"])){
+          $idJoueur = $_SESSION['idUser'];
+          $query = "UPDATE score SET personalBest ='$score' WHERE idUser = '$idJoueur' AND idJeu = 1";
+          $result = mysqli_query($conn, $query);
+          $aResult['result'] = $score;
+          echo json_encode($aResult);
+        }
+    }
 
 ?>
