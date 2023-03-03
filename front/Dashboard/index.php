@@ -3,6 +3,12 @@
   if (!isset($_SESSION["logged_in"])){
     header("Location: ../Login.php");
   }
+  include('../../back/Dashboard_fct.php');
+
+ $TotalPlayers=GetTotalPlayer();
+
+ $rank = GetRanking();
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +116,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your best rank 
                                         <br>
-                                        <h1 > 34/500 </h1>
+                                        <h1 > <?php echo min($rank) ?>/<?php echo $TotalPlayers?>  </h1>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -122,7 +128,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your worst rank 
                                         <br>
-                                        <h1 > 490/500 </h1>
+                                        <h1 > <?php echo max($rank) ?>/<?php echo $TotalPlayers?> </h1>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
