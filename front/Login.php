@@ -53,7 +53,6 @@ include('../back/Authentification_fct.php');
             <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Login</h5>
             <div class="banner banner-danger banner-dismissible">
               <?php
-              session_start();
               if (isset($_SESSION['errormsg'])) {
                 echo "<p>" . $_SESSION['errormsg'] . "</p>";
                 unset($_SESSION['errormsg']);
