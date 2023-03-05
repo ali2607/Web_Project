@@ -54,6 +54,8 @@
         txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
         if (ecartFinal < Number(txt_personalBest.innerHTML)) {
           txt_personalBest.innerHTML = ecartFinal;
+          window.location = `../back/saverecord.php?score=${ecartFinal}`;
+          
         }
           
         txt_result.style.opacity = 100; 
@@ -158,7 +160,13 @@
       <div class="container">
         <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
         <h1 class="fw-light text-white btn_timer" id="timer">Countdown</h1>
-        <p class="fw-light text-white btn_result" id="result">You were x seconds away from the target time.</p>
+        <?php
+        if( isset($_GET['ecartFinal']))
+        {
+          $res = $_GET['ecartFinal'];
+          echo "<p class='fw-light text-white '>You were $res seconds away from the target time.</p>";
+        }?>
+        <p class='fw-light text-white btn_result' id='result'>You were x seconds away from the target time.</p>
         <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
       </div>    
     </div>
