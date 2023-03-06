@@ -4,6 +4,33 @@ http://localhost/Projet_Web/test.php
 http://localhost/Projet_Web/front/Accueil.php
        
 
+A FAIRE EN URGENCE
+
+FAIRE DES INSERT PARTOUT AU MOMENT DE L'INSCRIPTION 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # FEUILLE DE ROUTE 
 
