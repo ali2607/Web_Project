@@ -57,7 +57,11 @@
         txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
         if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
           txt_personalBest.innerHTML = ecartFinal;
-          window.location = `../back/Jeu_Countdown_fct.php?score=${ecartFinal}&action=savepb`;      
+          window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=1&action=savepb`;      
+        }
+        else
+        {
+          <?php $nopb = true; ?>
         }
           
         txt_result.style.opacity = 100; 
@@ -163,10 +167,10 @@
         <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
         <h1 class="fw-light text-white btn_timer" id="timer">Countdown</h1>
         <?php
-        if( isset($_GET['ecartFinal']))
+        if( isset($_GET['ecartFinal']) && $nopb != true)
         {
           $res = $_GET['ecartFinal'];
-          echo "<p class='fw-light text-white '>You were $res seconds away from the target time.</p>";
+          echo "<p class='fw-light text-white' >You were $res seconds away from the target time.</p>";
         }?>
         <p class='fw-light text-white btn_result' id='result'>You were x seconds away from the target time.</p>
         <p class="fw-light text-white btn_retry" id="retry">Click to start</p>

@@ -1,16 +1,5 @@
 <?php
 
-    if(isset($_GET['action']))
-    {   
-        switch($_GET['action'])
-        { 
-            case 'savepb':
-                echo 'test';
-                SavePersonalBest();
-                break;
-        }
-    }
-
     // Récupération du meilleur score actuel
     function GetPersonalBest()
     {
@@ -25,18 +14,6 @@
                 return $res;   
             }                   
         }
-    }
-    
-    function SavePersonalBest(){
-        session_start();
-        include('../database/db.php');
-        $score = $_GET['score'];
-        if (isset($_SESSION["logged_in"])){
-            $idJoueur = $_SESSION['idUser'];
-            $query = "UPDATE score SET personalBest ='$score' WHERE idUser = '$idJoueur' AND idJeu = 1";
-            $result = mysqli_query($conn, $query);            
-        }        
-        header("Location:../front/Jeu_Countdown.php");
     }   
 
 ?>
