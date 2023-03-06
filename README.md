@@ -19,32 +19,7 @@ REQUETE SQL
 
 
 
-                                 <?php
-                                if()
-                                {
-                                ?>    
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc
-                                        
-
-
-                                    </div>
-                                </div>
-                                <?php
-                                }
-                                elseif()
-                                {
-                                ?>
-
-                                <?php
-                                }
-                                elseif()
-                                {
-                                    ?>
-
-                                <?php   
-                                }
-                                elseif( )
+                                
 
 
 
