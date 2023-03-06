@@ -116,7 +116,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your best rank 
                                         <br>
-                                        <h1 > <?php echo min($rank) ?>/<?php echo $TotalPlayers?>  </h1>
+                                        <h1 > <?php echo min($rank)+1 ?>/<?php echo $TotalPlayers?>  </h1>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -128,7 +128,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your worst rank 
                                         <br>
-                                        <h1 > <?php echo max($rank) ?>/<?php echo $TotalPlayers?> </h1>
+                                        <h1 > <?php echo max($rank)+1 ?>/<?php echo $TotalPlayers?> </h1>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -138,21 +138,26 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Global Ranking</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    <div class="card-body">Global Ranking
+                                    <br>
+                                    <h1 >
+                                    <?php
+                                        $res=0;
+                                        $cpt=0;
+                                        foreach ($rank as $value){
+                                            $res+=$value+1;
+                                            $cpt+=1;
+                                        }
+                                        $res=$res/$cpt;
+                                        
+                                        echo $res;
+                                        ?>/<?php echo $TotalPlayers?>
+                                    </h1>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
+  
                             </div>
                         </div>
                         <div class="row">
