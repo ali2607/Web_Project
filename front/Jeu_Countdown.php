@@ -55,6 +55,7 @@
         if (ecartFinal < Number(txt_personalBest.innerHTML)) {
           txt_personalBest.innerHTML = ecartFinal;
           window.location = `../back/saverecord.php?score=${ecartFinal}`;
+          <?php Saverecord()
           
         }
           
