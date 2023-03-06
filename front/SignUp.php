@@ -37,6 +37,14 @@
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5 font-weight-bold fs-5">Sign Up</h5>
+              <div class="banner banner-danger banner-dismissible">
+              <?php
+              if (isset($_SESSION['errormsg'])) {
+                echo "<p>" . $_SESSION['errormsg'] . "</p>";
+                unset($_SESSION['errormsg']);
+              }
+              ?>
+            </div>
               <form action="../back/Authentification_fct.php?action=signup" method="post">
                 <div class="form-floating mb-3">
                   <input name="SignUp_Username" type="text" class="form-control bloc_input" id="SignUp_Username" placeholder="Username">

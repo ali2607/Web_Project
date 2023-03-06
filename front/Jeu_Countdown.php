@@ -4,6 +4,9 @@
   include('../back/Jeu_Countdown_fct.php');
 
   $personalBest = GetPersonalBest();
+  if ($personalBest == null) {
+    $personalBest = "";
+  }
 
   include('head.php');  
 ?>
@@ -52,11 +55,9 @@
         var ecartFinal = ecart.toFixed(2);
 
         txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
-        if (ecartFinal < Number(txt_personalBest.innerHTML)) {
+        if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
           txt_personalBest.innerHTML = ecartFinal;
-          window.location = `../back/saverecord.php?score=${ecartFinal}`;
-          <?php Saverecord()
-          
+          window.location = `../back/Jeu_Countdown_fct.php?score=${ecartFinal}&action=savepb`;      
         }
           
         txt_result.style.opacity = 100; 
@@ -180,7 +181,7 @@
           <div class="text-center center">
             <h5 class="card-title title_score">Score</h5>
             <h5 class="card-title title_pr">Personal record :</h5>
-            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest ?></h5>
+            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?></h5>
           </div>
             </div>
         <!-- Leaderboard -->
