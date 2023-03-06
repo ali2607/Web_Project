@@ -157,7 +157,51 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-  
+                            <?php
+                                $place = $res / $TotalPlayers ;
+                                if($place<0.25)
+                                {
+                                ?>    
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
+                                <?php
+                                }
+                                elseif($place<0.50)
+                                {
+                                ?>
+
+                                <?php
+                                }
+                                elseif($place<0.75)
+                                {
+                                    ?>
+
+                                <?php
+                                }
+                                elseif($res==1)
+                                {
+                                    ?>
+                                <?php
+                                }
+                                elseif($res==2)
+                                {
+                                    ?>
+                                 <?php
+                                }
+                                elseif($res==3)
+                                {
+                                    ?>
+                                <?php
+                                }
+                                elseif($place<1)
+                                {
+                                    ?>
+
+
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                         <div class="row">
