@@ -1,4 +1,6 @@
 <?php
+    if(isset($_GET['action']))
+    {   
     switch($_GET['action'])
     { 
         case 'login':
@@ -13,8 +15,7 @@
             Logout();
             break;
     }
-
-
+}
 
     // Enregistrement d'un nouvel utilisateur
     function SignUp()
