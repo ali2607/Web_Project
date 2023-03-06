@@ -1,20 +1,17 @@
 <?php
-    if(isset($_GET['action']))
-    {   
-        switch($_GET['action'])
-        { 
-            case 'login':
-                Login();
-                break;
+    switch($_GET['action'])
+    { 
+        case 'login':
+            Login();
+            break;
 
-            case 'signup':
-                SignUp();
-                break;
+        case 'signup':
+            SignUp();
+            break;
 
-            case 'logout':
-                Logout();
-                break;
-        }
+        case 'logout':
+            Logout();
+            break;
     }
 
     // Enregistrement d'un nouvel utilisateur
@@ -24,10 +21,14 @@
 
         //echo $_POST["SignUp_Username"];
         if (empty($_POST["SignUp_Username"])) {
-        echo "Error: username empty";
-    }
+            session_start();
+            $_SESSION['errormsg'] = "username is empty";
+            header("Location: ../front/SignUp.php");
+                 }
     else if (empty($_POST["SignUp_Password"])) {
-        echo "Error: pass empty";
+        session_start();
+        $_SESSION['errormsg'] = "password is empty";
+        header("Location: ../front/SignUp.php");
     }
         else if (isset($_POST["SignUp_Username"]) && isset($_POST["SignUp_Password"])) {
             $pseudo = $_POST['SignUp_Username'];
@@ -35,34 +36,24 @@
     
             if($_POST["SignUp_Password"] != $_POST["SignUp_ConfirmPassword"] )
             {
-                echo "Error: Password and confirmation password incorrect";
+                session_start();
+                $_SESSION['errormsg'] = "Password and confirmation password incorrect";
+                header("Location: ../front/SignUp.php");
             }
             else
             {
                 $query = "INSERT INTO user (username, password) VALUES ('$pseudo', '$mdp')";
+                    
                 if (mysqli_query($conn, $query)) {
                     // Enregistrement réussi
-                    $query = "SELECT idUser from user where username = '$pseudo' and password = '$mdp'";
-                    $result = mysqli_query($conn, $query);
-                    echo mysqli_num_rows($result);
-                    if (mysqli_num_rows($result) == '1'){
-                        $row = mysqli_fetch_assoc($result);
-                        $idUser = $row['idUser'];  
-                        echo $idUser; 
-                    }    
-
-                    $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '1')";
-                    mysqli_query($conn, $query);
-                    $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '2')";
-                    mysqli_query($conn, $query);
-
                     header("Location: ../front/Login.php");
                 } else {
                     // Enregistrement échoué
                     echo "Error: " . $query . "<br>" . mysqli_error($conn);
+                    
+                    }
                 }
             }
-        }
 
         mysqli_close($conn);
     }
@@ -110,4 +101,3 @@
         session_destroy();
         header("Location: ../front/Accueil.php");
     }
-?>
