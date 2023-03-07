@@ -49,8 +49,21 @@
             var elapsed = currentTime - startTime;
             var difference = Math.abs(Math.round((target_time - elapsed) / 10) / 100);
             var ecart = target_time - difference;
+            var ecartFinal = ecart.toFixed(3)
 
-            txt_result.innerHTML = "You were <b>" + ecart.toFixed(3) + "</b> seconds away from the target time.";
+            txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
+            if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
+            txt_personalBest.innerHTML = ecartFinal;
+            <?php if(isset($_SESSION["logged_in"]))
+            {?>
+            window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=2&action=savepb`;    
+            <?php
+            }?>  
+            }
+            else
+            {
+              <?php $nopb = true; ?>
+            }
             txt_result.style.opacity = 100; 
             txt_retry.innerHTML = "Click to retry";
             txt_retry.style.opacity = 100; 
@@ -135,6 +148,12 @@
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
       <h1 class="fw-light text-white btn_timer" id="timer">Timer</h1>
+      <?php
+        if( isset($_GET['ecartFinal']) && $nopb != true)
+        {
+          $res = $_GET['ecartFinal'];
+          echo "<p class='fw-light text-white' >You were $res seconds away from the target time.</p>";
+        }?>
       <p class="fw-light text-white btn_result" id="result">You were x seconds away from the target time.</p>
       <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
     </div>    
@@ -148,7 +167,7 @@
       <div class="text-center center">
           <h5 class="card-title title_score">Score</h5>
           <h5 class="card-title title_pr">Personal record :</h5>
-          <h5 class="card-title title_cd">Temps</h5>
+          <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?></h5>
       </div>
     </a>
     <!-- Leaderboard -->
