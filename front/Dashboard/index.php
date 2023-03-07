@@ -8,7 +8,7 @@
  $TotalPlayers=GetTotalPlayer();
 
  $rank = GetRanking();
- 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +116,18 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your best rank 
                                         <br>
-                                        <h1 > <?php echo min($rank)+1 ?>/<?php echo $TotalPlayers?>  </h1>
+                                        <h1 > <?php
+
+                                        if(count($rank)>0)
+                                        {
+                                            echo min($rank)+1 ;
+                                        }
+                                        else
+                                        {
+                                            echo '---';
+                                        }
+                                        
+                                        ?>/<?php echo $TotalPlayers?>  </h1>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -128,7 +139,18 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your worst rank 
                                         <br>
-                                        <h1 > <?php echo max($rank)+1 ?>/<?php echo $TotalPlayers?> </h1>
+                                        <h1 > <?php 
+                                        
+                                        if(count($rank)>0)
+                                        {
+                                            echo max($rank);
+                                        }
+                                        else
+                                        {
+                                            echo '---';
+                                        }
+                                        
+                                        ?>/<?php echo $TotalPlayers?> </h1>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -142,15 +164,23 @@
                                     <br>
                                     <h1 >
                                     <?php
-                                        $res=0;
+                                    if(count($rank)>0)
+                                    {
+                                        $res=1;
                                         $cpt=0;
                                         foreach ($rank as $value){
-                                            $res+=$value+1;
+                                            $res+=$value;
                                             $cpt+=1;
                                         }
                                         $res=$res/$cpt;
                                         
                                         echo $res;
+                                    }
+                                    else
+                                    {
+                                        echo '---';
+                                    }
+
                                         ?>/<?php echo $TotalPlayers?>
                                     </h1>
                                     </div>
@@ -158,64 +188,76 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                             <?php
-                                $place = $res / $TotalPlayers ;
-                                if($place<0.25)
+                                if(count($rank)>0)
                                 {
-                                ?>    
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
+                                    $place = $res / $TotalPlayers ;
+                                    if($place<0.25)
+                                    {
+                                    ?>    
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($place<0.50)
+                                    {
+                                    ?>
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($place<0.75)
+                                    {
+                                    ?>
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($res==1)
+                                    {
+                                    ?>
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($res==2)
+                                    {
+                                    ?>
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($res==3)
+                                    {
+                                    ?>
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($place<1)
+                                    {
+                                    ?>
+                                    <div class="card bg-danger text-white mb-4">
+                                        <div class="card-body">Autre Truc </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    
+                                    
+                                }
+                                else
+                                {?>
+                                    <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body"><h3><?php echo 'maybe you should think about playing some game first?'?></h3> </div>
+                                    </div>;
                                 <?php
-                                }
-                                elseif($place<0.50)
-                                {
-                                ?>
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
-                                <?php
-                                }
-                                elseif($place<0.75)
-                                {
-                                ?>
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
-                                <?php
-                                }
-                                elseif($res==1)
-                                {
-                                ?>
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
-                                <?php
-                                }
-                                elseif($res==2)
-                                {
-                                ?>
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
-                                 <?php
-                                }
-                                elseif($res==3)
-                                {
-                                ?>
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
-                                <?php
-                                }
-                                elseif($place<1)
-                                {
-                                ?>
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc </div>
-                                </div>
-                                <?php
-                                }
-                                ?>
+                                }?>
+                                
                             </div>
                         </div>
                         <div class="row">
