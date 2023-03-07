@@ -25,7 +25,7 @@ function SignUp()
         $pseudo = $_POST['SignUp_Username'];
         $mdp = $_POST['SignUp_Password'];
 
-        $query = "SELECT * FROM _user WHERE username = '$pseudo' AND password = '$mdp'";
+        $query = "SELECT * FROM _user WHERE username = '$pseudo' ";
 
         $result = mysqli_query($conn, $query);
 
