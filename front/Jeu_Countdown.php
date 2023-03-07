@@ -57,7 +57,11 @@
         txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
         if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
           txt_personalBest.innerHTML = ecartFinal;
-          window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=1&action=savepb`;      
+          <?php if(isset($_SESSION["logged_in"]))
+          {?>
+          window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=1&action=savepb`;    
+          <?php
+          }?>  
         }
         else
         {
