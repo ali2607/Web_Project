@@ -32,7 +32,7 @@ function SignUp()
         if (mysqli_num_rows($result) > 0) {
             // User already exists
             session_start();
-            $_SESSION['errormsg'] = "User already exists";
+            $_SESSION['errormsg'] = "Username already exists";
             header("Location: ../front/SignUp.php");
             exit();
         }
@@ -57,6 +57,7 @@ function SignUp()
 
             if (mysqli_query($conn, $query)) {
                 // Enregistrement réussi
+                echo "test";
                 $query = "SELECT idUser from _user where username = '$pseudo' and password = '$mdp'";
                 $result = mysqli_query($conn, $query);
                 echo mysqli_num_rows($result);
@@ -66,12 +67,11 @@ function SignUp()
                     echo $idUser;
                 }
 
-                header("Location: ../front/Login.php");
                 $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '1')";
                 mysqli_query($conn, $query);
                 $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '2')";
                 mysqli_query($conn, $query);
-                header("Location: ../front/Login.php");
+                //header("Location: ../front/Login.php");
             } else {
                 // Enregistrement échoué
                 echo "Error: " . $query . "<br>" . mysqli_error($conn);

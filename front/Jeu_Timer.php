@@ -1,6 +1,13 @@
 <?php
   session_start();
 
+  include('../back/Jeu_Timer_fct.php');
+
+  $personalBest = GetPersonalBest();
+  if ($personalBest == null) {
+    $personalBest = "";
+  }
+
   include('head.php');
 ?>
 
@@ -13,6 +20,13 @@
 
    function jeuStart() {               
 
+        var fond_timer = document.getElementById("fond_timer");
+        var txt_timer = document.getElementById("timer");
+        var txt_target = document.getElementById("target");
+        var txt_result = document.getElementById("result");
+        var txt_retry = document.getElementById("retry");
+        var txt_personalBest = document.getElementById("personalBest");
+
         // Start
         if (etat == 0) { //Si on est en off
             
@@ -21,11 +35,10 @@
             startTime = new Date().getTime();
             timer = setInterval(updateTimer, 10); // update every 10 milliseconds
             
-            var target = document.getElementById("target");
-            target.innerHTML = "Your target time is <b><span style='color: #ffca18'>" + target_time+ "</span></b> seconds";
-            target.style.opacity = 100; 
-            document.getElementById("retry").style.opacity = 0; 
-            document.getElementById("result").style.opacity = 0; 
+            txt_target.innerHTML = "Your target time is <b><span style='color: #ffca18'>" + target_time+ "</span></b> seconds";
+            txt_target.style.opacity = 100; 
+            txt_retry.style.opacity = 0; 
+            txt_result.style.opacity = 0; 
 
             etat = 1; //Passe en on
         }
@@ -37,19 +50,17 @@
             var difference = Math.abs(Math.round((target_time - elapsed) / 10) / 100);
             var ecart = target_time - difference;
 
-            var result = document.getElementById("result");
-            result.innerHTML = "You were <b>" + ecart.toFixed(3) + "</b> seconds away from the target time.";
-            result.style.opacity = 100; 
-            var retry = document.getElementById("retry");
-            retry.innerHTML = "Click to retry";
-            retry.style.opacity = 100; 
+            txt_result.innerHTML = "You were <b>" + ecart.toFixed(3) + "</b> seconds away from the target time.";
+            txt_result.style.opacity = 100; 
+            txt_retry.innerHTML = "Click to retry";
+            txt_retry.style.opacity = 100; 
 
             // If the user was exactly on time
             if (difference == 0) {
-                result.innerHTML += " Congratulations, you were spot on!";
+              txt_result.innerHTML += " Congratulations, you were spot on!";
             }
 
-            document.getElementById("timer").style.opacity = 100;
+            txt_timer.style.opacity = 100;
             stop = false;
             etat = 0; //Passe en off
         }
