@@ -8,6 +8,8 @@
     $personalBest = "";
   }
 
+  $ldb = GetLeaderBoard();
+  
   include('head.php');  
 ?>
 
