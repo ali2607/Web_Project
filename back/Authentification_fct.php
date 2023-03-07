@@ -44,27 +44,30 @@
             }
             else
             {
-                $query = "INSERT INTO user (username, password) VALUES ('$pseudo', '$mdp')";
+
+                $query = "INSERT INTO _user (username, password) VALUES ('$pseudo', '$mdp')";
                     
                 if (mysqli_query($conn, $query)) {
-                    // Enregistrement réussi
-                    $query = "SELECT idUser from user where username = '$pseudo' and password = '$mdp'";
-                    $result = mysqli_query($conn, $query);
-                    echo mysqli_num_rows($result);
-                    if (mysqli_num_rows($result) == '1'){
-                        $row = mysqli_fetch_assoc($result);
-                        $idUser = $row['idUser'];  
-                        echo $idUser; 
-                    }    
+                // Enregistrement réussi
+                $query = "SELECT idUser from _user where username = '$pseudo' and password = '$mdp'";
+                $result = mysqli_query($conn, $query);
+                echo mysqli_num_rows($result);
+                if (mysqli_num_rows($result) == '1') {
+                    $row = mysqli_fetch_assoc($result);
+                    $idUser = $row['idUser'];
+                    echo $idUser;
+                }
 
-                    $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '1')";
-                    mysqli_query($conn, $query);
-                    $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '2')";
-                    mysqli_query($conn, $query);
+                header("Location: ../front/Login.php");
+                $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '1')";
+                mysqli_query($conn, $query);
+                $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '2')";
+                mysqli_query($conn, $query);
                     header("Location: ../front/Login.php");
                 } else {
                     // Enregistrement échoué
                     echo "Error: " . $query . "<br>" . mysqli_error($conn);
+
                     
                     }
                 }
@@ -82,7 +85,7 @@
             $pseudo = $_POST['Login_Username'];
             $mdp = $_POST['Login_Password'];
     
-            $query = "SELECT * FROM user WHERE username = '$pseudo' AND password = '$mdp'";
+            $query = "SELECT * FROM _user WHERE username = '$pseudo' AND password = '$mdp'";
             $result = mysqli_query($conn, $query);
     
             if (mysqli_num_rows($result) == 1) {
