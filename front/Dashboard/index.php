@@ -22,6 +22,8 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Own CSS -->
+        <link rel="stylesheet" href="../../css/Style.css">
     </head>
     <body >
         <!-- Navigation -->
@@ -192,63 +194,61 @@
                                 {
                                     $place = $res / $TotalPlayers ;
                                     if($place<0.25)
-                                    {
-                                    ?>    
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    elseif($place<0.50)
-                                    {
-                                    ?>
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    elseif($place<0.75)
-                                    {
-                                    ?>
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    elseif($res==1)
-                                    {
-                                    ?>
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    elseif($res==2)
-                                    {
-                                    ?>
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    elseif($res==3)
-                                    {
-                                    ?>
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    elseif($place<1)
-                                    {
-                                    ?>
-                                    <div class="card bg-danger text-white mb-4">
-                                        <div class="card-body">Autre Truc </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    
-                                    
+                                {
+                                ?>    
+                                <div class="card text-white mb-4 color_top25">
+                                    <div class="card-body">You are among the best players, well done!</div>
+                                </div>
+                                <?php
+                                }
+                                elseif($place<0.50)
+                                {
+                                ?>
+                                <div class="card text-white mb-4 color_top50">
+                                    <div class="card-body">You are above the average, good job.</div>
+                                </div>
+                                <?php
+                                }
+                                elseif($place<0.75)
+                                {
+                                ?>
+                                <div class="card text-white mb-4 color_top75">
+                                    <div class="card-body">Improve your scores to get above the top 50% of players.</div>
+                                </div>
+                                <?php
+                                }
+                                elseif($res==1)
+                                {
+                                ?>
+                                <div class="card text-white mb-4 color_top1">
+                                    <div class="card-body">You are the king! But will you remain so?</div>
+                                </div>
+                                <?php
+                                }
+                                elseif($res==2)
+                                {
+                                ?>
+                                <div class="card text-white mb-4 color_top2">
+                                    <div class="card-body">You can't stay in second place, can you?</div>
+                                </div>
+                                 <?php
+                                }
+                                elseif($res==3)
+                                {
+                                ?>
+                                <div class="card text-white mb-4 color_top3">
+                                    <div class="card-body">You are on the podium, congratulations!</div>
+                                </div>
+                                <?php
+                                }
+                                elseif($place<1)
+                                {
+                                ?>
+                                <div class="card text-white mb-4 color_top100">
+                                    <div class="card-body">It could be worse... Oh wait.</div>
+                                </div>
+                                <?php
+                                }                                
                                 }
                                 else
                                 {?>
