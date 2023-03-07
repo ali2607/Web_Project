@@ -16,4 +16,14 @@
         }
     }   
 
+    function GetLeaderBoard()
+    {
+        include('../database/db.php');
+        if(isset($_SESSION["logged_in"])){
+            $query = "SELECT username FROM user,score WHERE user.idUser = score.idUser AND score.idJeu=1 AND score.personalBest IS NOT NULL ORDER BY score.personalBest  ";
+
+
+        }
+    }
+
 ?>
