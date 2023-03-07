@@ -170,35 +170,49 @@
                                 elseif($place<0.50)
                                 {
                                 ?>
-
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
                                 <?php
                                 }
                                 elseif($place<0.75)
                                 {
-                                    ?>
-
+                                ?>
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
                                 <?php
                                 }
                                 elseif($res==1)
                                 {
-                                    ?>
+                                ?>
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
                                 <?php
                                 }
                                 elseif($res==2)
                                 {
-                                    ?>
+                                ?>
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
                                  <?php
                                 }
                                 elseif($res==3)
                                 {
-                                    ?>
+                                ?>
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
                                 <?php
                                 }
                                 elseif($place<1)
                                 {
-                                    ?>
-
-
+                                ?>
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Autre Truc </div>
+                                </div>
                                 <?php
                                 }
                                 ?>

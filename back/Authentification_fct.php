@@ -1,7 +1,6 @@
 <?php
-    if(isset($_GET['action']))
-    {
-    switch($_GET['action'])
+    if (isset ($_GET['action'])){
+        switch($_GET['action'])
     { 
         case 'login':
             Login();
@@ -15,7 +14,7 @@
             Logout();
             break;
     }
-    }
+    }    
 
     // Enregistrement d'un nouvel utilisateur
     function SignUp()
@@ -49,6 +48,19 @@
                     
                 if (mysqli_query($conn, $query)) {
                     // Enregistrement réussi
+                    $query = "SELECT idUser from user where username = '$pseudo' and password = '$mdp'";
+                    $result = mysqli_query($conn, $query);
+                    echo mysqli_num_rows($result);
+                    if (mysqli_num_rows($result) == '1'){
+                        $row = mysqli_fetch_assoc($result);
+                        $idUser = $row['idUser'];  
+                        echo $idUser; 
+                    }    
+
+                    $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '1')";
+                    mysqli_query($conn, $query);
+                    $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '2')";
+                    mysqli_query($conn, $query);
                     header("Location: ../front/Login.php");
                 } else {
                     // Enregistrement échoué
