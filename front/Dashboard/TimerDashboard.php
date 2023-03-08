@@ -7,7 +7,7 @@
   $totalplayers = GetTotalPlayer();
   $PB = GetPB(2);
   $rank = GetRanking(2);
-
+  $leaderboard =GetLeaderBoard(2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,7 +131,9 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Leaderboard
                                     <br>
-
+                                    <h5 class="card-title title_top">1. <?php if(isset($leaderboard[0])){echo $leaderboard[0];} ?></h5> 
+                                    <h5 class="card-title title_top">2. <?php if(isset($leaderboard[1])){echo $leaderboard[1];} ?></h5> 
+                                    <h5 class="card-title title_top">3. <?php if(isset($leaderboard[2])){echo $leaderboard[2];} ?></h5> 
                                     </div>
                                 </div>
                             </div>
