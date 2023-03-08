@@ -6,6 +6,10 @@ http://localhost/Projet_Web/front/Accueil.php
 
 A FAIRE EN URGENCE
 
+
+VERIFIER LE 0/X CLASSEMENT
+
+
  
 FAIRE UNE VRAI BASE DE DONNEE
 
