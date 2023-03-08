@@ -8,9 +8,16 @@
     $personalBest = "";
   }
 
-  include('../back/Games_Dashboard_fct.php');
+  include('../back/Games_fct.php');
   $totalplayers = GetTotalPlayer();
-  $rank = GetRanking(1);
+  $rankgood = true;
+  try
+  {
+    $rank = GetRanking(1);
+  }catch(Exception $e)
+  {
+    $rankgood = false; 
+  }
   $leaderboard =GetLeaderBoard(1);
   
   include('head.php');  
@@ -64,7 +71,7 @@
           txt_personalBest.innerHTML = ecartFinal;
           <?php if(isset($_SESSION["logged_in"]))
           {?>
-          window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=1&action=savepb`;    
+                window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=1&action=savepb`;    
           <?php
           }?>  
         }
@@ -194,7 +201,7 @@
           <div class="text-center center">
             <h5 class="card-title title_score">Score</h5>
             <h5 class="card-title title_pr">Personal record :</h5>
-            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?> sec</h5>
+            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?></h5>
           </div>
             </div>
         <!-- Leaderboard -->
@@ -203,7 +210,7 @@
           <h5 class="card-title title_top">1. <?php if(isset($leaderboard[0])){echo $leaderboard[0];} ?></h5> 
           <h5 class="card-title title_top">2. <?php if(isset($leaderboard[1])){echo $leaderboard[1];} ?></h5> 
           <h5 class="card-title title_top">3. <?php if(isset($leaderboard[2])){echo $leaderboard[2];} ?></h5> 
-          <h5 class="card-title title_top">Your rank. <?php echo $rank;?>/<?php echo $totalplayers;?></h5> 
+          <h5 class="card-title title_top">Your rank. <?php if($rankgood){echo $rank;}else{ echo '---';}?>/<?php echo $totalplayers;?></h5> 
         </div>  
 
         <!-- Rules -->

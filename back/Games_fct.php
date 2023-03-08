@@ -2,7 +2,7 @@
 
 function GetTotalPlayer()
 {
-    include('../../database/db.php');
+    include('../database/db.php');
 
     if(isset($_SESSION["logged_in"])){
         $query = "SELECT COUNT(*) as TotalPlayers From user";
@@ -15,7 +15,7 @@ function GetTotalPlayer()
 
 function GetPB($idJeu)
 {
-    include('../../database/db.php');
+    include('../database/db.php');
 
     if(isset($_SESSION["logged_in"])){
         $idUser = $_SESSION['idUser'];       
@@ -30,7 +30,7 @@ function GetPB($idJeu)
 
 function GetRanking($idJeu)
     {
-        include('../../database/db.php');
+        include('../database/db.php');
 
         if(isset($_SESSION["logged_in"])){
             $idUser = $_SESSION['idUser'];
@@ -51,7 +51,7 @@ function GetRanking($idJeu)
 
     function GetLeaderBoard($idjeu)
     {
-        include('../../database/db.php');
+        include('../database/db.php');
         if(isset($_SESSION["logged_in"])){
             $query = "SELECT username FROM user,score WHERE user.idUser = score.idUser AND score.idJeu=$idjeu AND score.personalBest IS NOT NULL ORDER BY score.personalBest ASC  ";
             $result = mysqli_query($conn, $query);
