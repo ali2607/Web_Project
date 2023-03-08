@@ -1,6 +1,13 @@
 <?php
   session_start();
 
+  include('../back/Jeu_Timer_fct.php');
+
+  $personalBest = GetPersonalBest();
+  if ($personalBest == null) {
+    $personalBest = "";
+  }
+
   include('head.php');
 ?>
 
@@ -13,6 +20,13 @@
 
    function jeuStart() {               
 
+        var fond_timer = document.getElementById("fond_timer");
+        var txt_timer = document.getElementById("timer");
+        var txt_target = document.getElementById("target");
+        var txt_result = document.getElementById("result");
+        var txt_retry = document.getElementById("retry");
+        var txt_personalBest = document.getElementById("personalBest");
+
         // Start
         if (etat == 0) { //Si on est en off
             
@@ -21,11 +35,10 @@
             startTime = new Date().getTime();
             timer = setInterval(updateTimer, 10); // update every 10 milliseconds
             
-            var target = document.getElementById("target");
-            target.innerHTML = "Your target time is <b><span style='color: #ffca18'>" + target_time+ "</span></b> seconds";
-            target.style.opacity = 100; 
-            document.getElementById("retry").style.opacity = 0; 
-            document.getElementById("result").style.opacity = 0; 
+            txt_target.innerHTML = "Your target time is <b><span style='color: #ffca18'>" + target_time+ "</span></b> seconds";
+            txt_target.style.opacity = 100; 
+            txt_retry.style.opacity = 0; 
+            txt_result.style.opacity = 0; 
 
             etat = 1; //Passe en on
         }
@@ -36,20 +49,31 @@
             var elapsed = currentTime - startTime;
             var difference = Math.abs(Math.round((target_time - elapsed) / 10) / 100);
             var ecart = target_time - difference;
+            var ecartFinal = ecart.toFixed(3)
 
-            var result = document.getElementById("result");
-            result.innerHTML = "You were <b>" + ecart.toFixed(3) + "</b> seconds away from the target time.";
-            result.style.opacity = 100; 
-            var retry = document.getElementById("retry");
-            retry.innerHTML = "Click to retry";
-            retry.style.opacity = 100; 
+            txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
+            if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
+            txt_personalBest.innerHTML = ecartFinal;
+            <?php if(isset($_SESSION["logged_in"]))
+            {?>
+            window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=2&action=savepb`;    
+            <?php
+            }?>  
+            }
+            else
+            {
+              <?php $nopb = true; ?>
+            }
+            txt_result.style.opacity = 100; 
+            txt_retry.innerHTML = "Click to retry";
+            txt_retry.style.opacity = 100; 
 
             // If the user was exactly on time
             if (difference == 0) {
-                result.innerHTML += " Congratulations, you were spot on!";
+              txt_result.innerHTML += " Congratulations, you were spot on!";
             }
 
-            document.getElementById("timer").style.opacity = 100;
+            txt_timer.style.opacity = 100;
             stop = false;
             etat = 0; //Passe en off
         }
@@ -124,6 +148,12 @@
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
       <h1 class="fw-light text-white btn_timer" id="timer">Timer</h1>
+      <?php
+        if( isset($_GET['ecartFinal']) && $nopb != true)
+        {
+          $res = $_GET['ecartFinal'];
+          echo "<p class='fw-light text-white' >You were $res seconds away from the target time.</p>";
+        }?>
       <p class="fw-light text-white btn_result" id="result">You were x seconds away from the target time.</p>
       <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
     </div>    
@@ -137,7 +167,7 @@
       <div class="text-center center">
           <h5 class="card-title title_score">Score</h5>
           <h5 class="card-title title_pr">Personal record :</h5>
-          <h5 class="card-title title_cd">Temps</h5>
+          <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?></h5>
       </div>
     </a>
     <!-- Leaderboard -->

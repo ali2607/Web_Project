@@ -4,7 +4,12 @@
   include('../back/Jeu_Countdown_fct.php');
 
   $personalBest = GetPersonalBest();
+  if ($personalBest == null) {
+    $personalBest = "";
+  }
 
+  $ldb = GetLeaderBoard();
+  
   include('head.php');  
 ?>
 
@@ -52,11 +57,17 @@
         var ecartFinal = ecart.toFixed(2);
 
         txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
-        if (ecartFinal < Number(txt_personalBest.innerHTML)) {
+        if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
           txt_personalBest.innerHTML = ecartFinal;
-          window.location = `../back/saverecord.php?score=${ecartFinal}`;
-          <?php Saverecord()
-          
+          <?php if(isset($_SESSION["logged_in"]))
+          {?>
+          window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=1&action=savepb`;    
+          <?php
+          }?>  
+        }
+        else
+        {
+          <?php $nopb = true; ?>
         }
           
         txt_result.style.opacity = 100; 
@@ -162,10 +173,10 @@
         <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
         <h1 class="fw-light text-white btn_timer" id="timer">Countdown</h1>
         <?php
-        if( isset($_GET['ecartFinal']))
+        if( isset($_GET['ecartFinal']) && $nopb != true)
         {
           $res = $_GET['ecartFinal'];
-          echo "<p class='fw-light text-white '>You were $res seconds away from the target time.</p>";
+          echo "<p class='fw-light text-white' >You were $res seconds away from the target time.</p>";
         }?>
         <p class='fw-light text-white btn_result' id='result'>You were x seconds away from the target time.</p>
         <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
@@ -180,7 +191,7 @@
           <div class="text-center center">
             <h5 class="card-title title_score">Score</h5>
             <h5 class="card-title title_pr">Personal record :</h5>
-            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest ?></h5>
+            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?></h5>
           </div>
             </div>
         <!-- Leaderboard -->

@@ -150,3 +150,33 @@ height:80px;
   position:relative;
   bottom:25px;
 }
+
+/* Dashboard */
+
+.color_top1{
+  background-color:#ffca18!important;
+}
+
+.color_top2{
+  background-color:#c0c0c0!important;
+}
+
+.color_top3{
+  background-color:#804b41!important;
+}
+
+.color_top25{
+  background-color:#5dcf1c!important;
+}
+
+.color_top50{
+  background-color:#eee043!important;
+}
+
+.color_top75{
+  background-color:#ef5219!important;
+}
+
+.color_top100{
+  background-color:#e00f0f!important;
+}

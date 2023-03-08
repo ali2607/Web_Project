@@ -6,45 +6,23 @@ http://localhost/Projet_Web/front/Accueil.php
 
 A FAIRE EN URGENCE
 
-FAIRE DES INSERT PARTOUT AU MOMENT DE L'INSCRIPTION 
+ 
 FAIRE UNE VRAI BASE DE DONNEE
 
--LOGIN
-BON ID ET BON MDP
 -REGISTER
-MDP ET CONFIRM MDP IDENTIQUE
 USERNAME EXISTE DEJA
 
 REQUETE SQL
 
 
 
-                                 <?php
-                                if()
-                                {
-                                ?>    
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Autre Truc
-                                        
 
 
-                                    </div>
-                                </div>
-                                <?php
-                                }
-                                elseif()
-                                {
-                                ?>
+X FAIRE DES INSERT PARTOUT AU MOMENT DE L'INSCRIPTION
 
-                                <?php
-                                }
-                                elseif()
-                                {
-                                    ?>
-
-                                <?php   
-                                }
-                                elseif( )
+X-LOGIN
+BON ID ET BON MDP 
+MDP ET CONFIRM MDP IDENTIQUE                            
 
 
 
