@@ -8,7 +8,10 @@
     $personalBest = "";
   }
 
-  $ldb = GetLeaderBoard();
+  include('../back/Games_Dashboard_fct.php');
+  $totalplayers = GetTotalPlayer();
+  $rank = GetRanking(1);
+  $leaderboard =GetLeaderBoard(1);
   
   include('head.php');  
 ?>
@@ -191,18 +194,16 @@
           <div class="text-center center">
             <h5 class="card-title title_score">Score</h5>
             <h5 class="card-title title_pr">Personal record :</h5>
-            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?></h5>
+            <h5 class="card-title title_cd" id="personalBest"><?php echo $personalBest; ?> sec</h5>
           </div>
             </div>
         <!-- Leaderboard -->
         <div class="bloc_jeux1">
           <h5 class="card-title title_ldb">Leaderboard :</h5> 
-          <h5 class="card-title title_top">1. Pierre</h5> 
-          <h5 class="card-title title_top">2. Paul</h5> 
-          <h5 class="card-title title_top">3. Jacques</h5> 
-          <div class="text-center center">
-            <h5 class="card-title title_rank">Rank. Moi</h5>  
-          </div>
+          <h5 class="card-title title_top">1. <?php if(isset($leaderboard[0])){echo $leaderboard[0];} ?></h5> 
+          <h5 class="card-title title_top">2. <?php if(isset($leaderboard[1])){echo $leaderboard[1];} ?></h5> 
+          <h5 class="card-title title_top">3. <?php if(isset($leaderboard[2])){echo $leaderboard[2];} ?></h5> 
+          <h5 class="card-title title_top">Your rank. <?php echo $rank;?>/<?php echo $totalplayers;?></h5> 
         </div>  
 
         <!-- Rules -->
