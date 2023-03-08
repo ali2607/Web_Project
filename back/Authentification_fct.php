@@ -39,17 +39,17 @@ function SignUp()
 
         if (empty($_POST["SignUp_Username"])) {
             session_start();
-            $_SESSION['errormsg'] = "username is empty";
+            $_SESSION['errormsg'] = "Username is empty";
             header("Location: ../front/SignUp.php");
             exit();
         } else if (empty($_POST["SignUp_Password"])) {
             session_start();
-            $_SESSION['errormsg'] = "password is empty";
+            $_SESSION['errormsg'] = "Password is empty";
             header("Location: ../front/SignUp.php");
             exit();
         } else if ($_POST["SignUp_Password"] != $_POST["SignUp_ConfirmPassword"]) {
             session_start();
-            $_SESSION['errormsg'] = "Password and confirmation password incorrect";
+            $_SESSION['errormsg'] = "Different Password and Confirmation Password";
             header("Location: ../front/SignUp.php");
             exit();
         } else {
