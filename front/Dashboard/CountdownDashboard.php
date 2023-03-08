@@ -3,6 +3,11 @@
   if (!isset($_SESSION["logged_in"])){
     header("Location: ../Login.php");
   }
+
+  include('../../back/Games_Dashboard_fct.php');
+  $totalplayers = GetTotalPlayer();
+  $PB = GetPB(1);
+  $rank = GetRanking(1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +55,7 @@
             <?php
             if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){?>
               <label class="text-light mx-3" ><?php echo "Hello ".$_SESSION["username"];?></label>
-              <a class="btn btn-outline-light btn-sm" href="../Login.php">Logout</a>
+              <a class="btn btn-outline-light btn-sm" href="../../back/Authentification_fct.php?action=logout">Logout</a>
               <?php
             }
             else{
@@ -108,35 +113,27 @@
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Your best rank 
+                                    <div class="card-body">Your Personal Best 
                                         <br>
-                                        <h1 > 34/500 </h1>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <h1 > <?php echo $PB;?>s</h1>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Your worst rank 
+                                    <div class="card-body">Your Rank 
                                         <br>
-                                        <h1 > 490/500 </h1>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <h1 > <?php echo $rank+1;?>/<?php echo $totalplayers;?> </h1>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Global Ranking</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    <div class="card-body">Leaderboard
+                                    <br>
+
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">

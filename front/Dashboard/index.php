@@ -56,7 +56,7 @@
             <?php
             if (isset($_SESSION["logged_in"]) && ($_SESSION["logged_in"])){?>
               <label class="text-light mx-3" ><?php echo "Hello ".$_SESSION["username"];?></label>
-              <a class="btn btn-outline-light btn-sm" href="../Login.php">Logout</a>
+              <a class="btn btn-outline-light btn-sm" href="../../back/Authentification_fct.php?action=logout">Logout</a>
               <?php
             }
             else{
