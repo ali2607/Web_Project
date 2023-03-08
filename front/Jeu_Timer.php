@@ -62,7 +62,7 @@
             var elapsed = currentTime - startTime;
             var difference = Math.abs(Math.round((target_time - elapsed) / 10) / 100);
             var ecart = target_time - difference;
-            var ecartFinal = ecart.toFixed(3)
+            var ecartFinal = Math.abs(ecart.toFixed(3))
 
             txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
             if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {

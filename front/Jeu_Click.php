@@ -8,7 +8,7 @@
     $personalBest = "";
   }
 
-  include('../back/Games_Dashboard_fct.php');
+  include('../back/Games_fct.php');
   $totalplayers = GetTotalPlayer();
   $rank = GetRanking(2);
   $leaderboard =GetLeaderBoard(2);
@@ -41,28 +41,40 @@
         var timer = document.getElementById('timer');
         //var button = document.getElementById('retry');
 
-        txt_timer.style.opacity = 100;
+        if (etat==0){
+            txt_timer.style.opacity = 100;
         txt_target.style.opacity = 100; 
 
-        let btn = document.getElementById("target");
+        let btn = document.getElementById("fond_timer");
+        let info = document.getElementById("target");
         let clickType = Math.random() < 0.5 ? "gauche" : "droit";
-        btn.innerHTML = "Cliquez " + clickType + " maintenant!";
-        btn.style.backgroundColor = clickType == "gauche" ? "red" : "blue";
-        window.addEventListener('click', (event) => {
-        console.log(event.button)
-        })
-
-        btn.onclick = function() 
+        info.innerHTML = "Cliquez " + clickType + " maintenant!";
+        //btn.style.backgroundColor = clickType == "gauche" ? "red" : "blue";
+        btn.disabled=true;
+        btn.oncontextmenu = function()
         {
-          if ((clickType == "gauche" && event.button == 0) || (clickType == "droit" && event.button == 2)) {
+            if (clickType == "droit" && event.button == 2) {
             score++;
-            document.getElementById("timer").innerHTML = "Score: " + score;
+            document.getElementById("timer").innerHTML = score;
             jeuStart();
           } else {
             alert("Vous avez perdu! Votre score est de: " + score);
-            btn.disabled = true;
+            etat = 1;
+          } 
+        }
+        btn.onclick = function() 
+        {
+          if (clickType == "gauche" && event.button == 0) {
+            score++;
+            document.getElementById("timer").innerHTML = score;
+            jeuStart();
+          } else {
+            alert("Vous avez perdu! Votre score est de: " + score);
+            etat = 1;
           }
         };
+        }
+        
     }
 
 </script>
@@ -103,7 +115,7 @@
   </nav>
 
   <!-- Bloc Gris-->
-  <div class="text-center d-flex align-items-center py-5 mb-5 fond_color" id="fond_timer" onclick="jeuStart();" style="height: 50vh">
+  <div class="text-center d-flex align-items-center py-5 mb-5 fond_color" id="fond_timer" onclick="jeuStart()" style="height: 50vh">
     <div class="container">
       <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
       <h1 class="fw-light text-white btn_timer" id="timer">Timer</h1>
