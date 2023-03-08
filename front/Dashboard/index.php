@@ -253,7 +253,7 @@
                                 else
                                 {?>
                                     <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><h3><?php echo 'maybe you should think about playing some game first?';?></h3> </div>
+                                    <div class="card-body"><h3><?php echo 'maybe you should think about playing some games first?';?></h3> </div>
                                     </div>
                                 <?php
                                 }?>
