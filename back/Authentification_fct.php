@@ -25,7 +25,7 @@ function SignUp()
         $pseudo = $_POST['SignUp_Username'];
         $mdp = $_POST['SignUp_Password'];
 
-        $query = "SELECT * FROM _user WHERE username = '$pseudo' ";
+        $query = "SELECT * FROM user WHERE username = '$pseudo' ";
 
         $result = mysqli_query($conn, $query);
 
@@ -53,7 +53,7 @@ function SignUp()
             header("Location: ../front/SignUp.php");
             exit();
         } else {
-            $query = "INSERT INTO _user (username, password) VALUES ('$pseudo', '$mdp')";
+            $query = "INSERT INTO user (username, password) VALUES ('$pseudo', '$mdp')";
 
             if (mysqli_query($conn, $query)) {
                 // Enregistrement réussi
@@ -69,7 +69,7 @@ function SignUp()
 
                 $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '1')";
                 mysqli_query($conn, $query);
-                $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '2')";
+                $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '2')";
                 mysqli_query($conn, $query);
                 header("Location: ../front/Login.php");
             } else {
@@ -91,7 +91,7 @@ function SignUp()
             $pseudo = $_POST['Login_Username'];
             $mdp = $_POST['Login_Password'];
     
-            $query = "SELECT * FROM _user WHERE username = '$pseudo' AND password = '$mdp'";
+            $query = "SELECT * FROM user WHERE username = '$pseudo' AND password = '$mdp'";
             $result = mysqli_query($conn, $query);
     
             if (mysqli_num_rows($result) == 1) {
