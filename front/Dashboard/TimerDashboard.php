@@ -123,7 +123,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your Rank 
                                         <br>
-                                        <h1 > <?php echo $rank+1;?>/<?php echo $totalplayers;?> </h1>
+                                        <h1 > <?php echo $rank;?>/<?php echo $totalplayers;?> </h1>
                                     </div>
                                 </div>
                             </div>

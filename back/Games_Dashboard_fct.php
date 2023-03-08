@@ -39,7 +39,7 @@ function GetRanking($idJeu)
             $row = mysqli_fetch_assoc($result);
             $PB = $row['personalBest'];
 
-            $query = "SELECT Count(*) as rank From score WHERE idJeu=$idJeu AND personalBest < $PB";
+            $query = "SELECT Count(*) as rank From score WHERE idJeu=$idJeu AND personalBest <= $PB";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
             $rank = $row['rank'];
