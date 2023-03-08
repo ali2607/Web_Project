@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  include('../back/Jeu_Timer_fct.php');
+  include('../back/Jeu_Click_fct.php');
 
   $personalBest = GetPersonalBest();
   if ($personalBest == null) {
@@ -21,9 +21,14 @@
     var timer; 
     var etat = 0;
     var target_time;
-    var stop = false;
+    var stop = false; 
+    
+    let count = 0;
+    let timeoutId;
 
-   function jeuStart() {               
+    function jeuStart() {
+
+        let score = 0;
 
         var fond_timer = document.getElementById("fond_timer");
         var txt_timer = document.getElementById("timer");
@@ -32,85 +37,34 @@
         var txt_retry = document.getElementById("retry");
         var txt_personalBest = document.getElementById("personalBest");
 
-        // Start
-        if (etat == 0) { //Si on est en off
-            
-            target_time = Math.floor(Math.random() * (15-8)+8);            
-            
-            startTime = new Date().getTime();
-            timer = setInterval(updateTimer, 10); // update every 10 milliseconds
-            
-            txt_target.innerHTML = "Your target time is <b><span style='color: #ffca18'>" + target_time+ "</span></b> seconds";
-            txt_target.style.opacity = 100; 
-            txt_retry.style.opacity = 0; 
-            txt_result.style.opacity = 0; 
+        var instruction = document.getElementById('target');
+        var timer = document.getElementById('timer');
+        //var button = document.getElementById('retry');
 
-            etat = 1; //Passe en on
-        }
-        // Stop
-        else{          
-            clearInterval(timer);
-            var currentTime = new Date().getTime();
-            var elapsed = currentTime - startTime;
-            var difference = Math.abs(Math.round((target_time - elapsed) / 10) / 100);
-            var ecart = target_time - difference;
-            var ecartFinal = ecart.toFixed(3)
+        txt_timer.style.opacity = 100;
+        txt_target.style.opacity = 100; 
 
-            txt_result.innerHTML = "You were <b>" + ecartFinal + "</b> seconds away from the target time.";
-            if (txt_personalBest.innerHTML == "" || ecartFinal < Number(txt_personalBest.innerHTML)) {
-            txt_personalBest.innerHTML = ecartFinal;
-            <?php if(isset($_SESSION["logged_in"]))
-            {?>
-            window.location = `../back/SaveRecord.php?score=${ecartFinal}&idjeu=2&action=savepb`;    
-            <?php
-            }?>  
-            }
-            else
-            {
-              <?php $nopb = true; ?>
-            }
-            txt_result.style.opacity = 100; 
-            txt_retry.innerHTML = "Click to retry";
-            txt_retry.style.opacity = 100; 
+        let btn = document.getElementById("target");
+        let clickType = Math.random() < 0.5 ? "gauche" : "droit";
+        btn.innerHTML = "Cliquez " + clickType + " maintenant!";
+        btn.style.backgroundColor = clickType == "gauche" ? "red" : "blue";
+        window.addEventListener('click', (event) => {
+        console.log(event.button)
+        })
 
-            // If the user was exactly on time
-            if (difference == 0) {
-              txt_result.innerHTML += " Congratulations, you were spot on!";
-            }
-
-            txt_timer.style.opacity = 100;
-            stop = false;
-            etat = 0; //Passe en off
-        }
+        btn.onclick = function() 
+        {
+          if ((clickType == "gauche" && event.button == 0) || (clickType == "droit" && event.button == 2)) {
+            score++;
+            document.getElementById("timer").innerHTML = "Score: " + score;
+            jeuStart();
+          } else {
+            alert("Vous avez perdu! Votre score est de: " + score);
+            btn.disabled = true;
+          }
+        };
     }
 
-    function updateTimer() {
-            var currentTime = new Date().getTime();
-            var elapsed = currentTime - startTime;
-
-            var minutes = Math.floor(elapsed / 60000);
-            var seconds = Math.floor((elapsed % 60000) / 1000);
-            var milliseconds = elapsed % 1000;
-
-            // Add leading zeros to seconds and milliseconds
-            if (seconds < 10) {
-                seconds = seconds;
-            }
-            if (milliseconds < 100) {
-                milliseconds = "0" + milliseconds;
-            }
-            if (milliseconds < 10) {
-                milliseconds = "0" + milliseconds;
-            }
-            if (seconds > 4) {
-                stop = true;
-                document.getElementById("timer").innerHTML = "...";
-            }
-            
-            if (!stop) {
-                document.getElementById("timer").innerHTML = seconds + "." + milliseconds;
-            }            
-    }
 </script>
 
 <body>
