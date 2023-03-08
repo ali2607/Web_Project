@@ -58,7 +58,7 @@ function SignUp()
             if (mysqli_query($conn, $query)) {
                 // Enregistrement réussi
                 echo "test";
-                $query = "SELECT idUser from _user where username = '$pseudo' and password = '$mdp'";
+                $query = "SELECT idUser from user where username = '$pseudo' and password = '$mdp'";
                 $result = mysqli_query($conn, $query);
                 echo mysqli_num_rows($result);
                 if (mysqli_num_rows($result) == '1') {
@@ -67,7 +67,7 @@ function SignUp()
                     echo $idUser;
                 }
 
-                $query = "INSERT INTO _score (idUser, idJeu) VALUES ('$idUser', '1')";
+                $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '1')";
                 mysqli_query($conn, $query);
                 $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '2')";
                 mysqli_query($conn, $query);

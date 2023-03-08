@@ -6,7 +6,7 @@
         include('../database/db.php');
         if(isset($_SESSION["logged_in"])){
             $idUser = $_SESSION['idUser'];
-            $query = "SELECT personalBest FROM _score WHERE idUser = '$idUser' AND idJeu = 1";
+            $query = "SELECT personalBest FROM score WHERE idUser = '$idUser' AND idJeu = 1";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) == 1){
                 $row = mysqli_fetch_assoc($result);
@@ -20,7 +20,7 @@
     {
         include('../database/db.php');
         if(isset($_SESSION["logged_in"])){
-            $query = "SELECT username FROM _user,_score WHERE _user.idUser = _score.idUser AND _score.idJeu=1 AND _score.personalBest IS NOT NULL ORDER BY _score.personalBest  ";
+            $query = "SELECT username FROM user,score WHERE user.idUser = score.idUser AND score.idJeu=1 AND score.personalBest IS NOT NULL ORDER BY score.personalBest  ";
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
             $res = $row['username'];

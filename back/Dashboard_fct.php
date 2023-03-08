@@ -30,7 +30,7 @@
             if (mysqli_num_rows($result) == 1){
                 $row = mysqli_fetch_assoc($result);
                 $PB = $row['personalBest'];
-                $query = "SELECT Count(*) as rank From score WHERE idJeu=$i AND personalBest < $PB";
+                $query = "SELECT Count(*) as rank From score WHERE idJeu=$i AND personalBest <= $PB";
                 $result = mysqli_query($conn, $query);
                 if (mysqli_num_rows($result) == 1){
                 $row = mysqli_fetch_assoc($result);

@@ -122,7 +122,7 @@
 
                                         if(count($rank)>0)
                                         {
-                                            echo min($rank)+1 ;
+                                            echo min($rank) ;
                                         }
                                         else
                                         {
