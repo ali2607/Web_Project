@@ -18,6 +18,10 @@
     {
         header("Location:../front/Jeu_Timer.php?ecartFinal=$score");
     }
+    elseif($idjeu == 3)
+    {
+        header("Location:../front/Jeu_QTE.php?ecartFinal=$score");
+    }
     
     die();
 ?>

@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  include('../back/Jeu_Maze_fct.php');
+  include('../back/Jeu_QTE_fct.php');
 
   $personalBest = GetPersonalBest();
   if ($personalBest == null) {
@@ -19,7 +19,7 @@
     $rankgood = false; 
   }
   $leaderboard =GetLeaderBoard(1);
-  
+  $nopb = true;
   include('head.php');  
 ?>
 
@@ -66,12 +66,12 @@
         <p class="fw-light text-white align-items-top btn_target" id="target">Your target time is x seconds</p>
         <h1 class="fw-light text-white btn_timer" id="timer">QTE</h1>
         <?php
-        if( isset($_GET['ecartFinal']) && $nopb != true)
+        if( isset($_GET['ecartFinal'])  && $nopb != true)
         {
           $res = $_GET['ecartFinal'];
-          echo "<p class='fw-light text-white' >You were $res seconds away from the target time.</p>";
+          echo "<p class='fw-light text-white' >You scored $res seconds per letter</p>";
         }?>
-        <p class='fw-light text-white btn_result' id='result'>You were x seconds away from the target time.</p>
+        <p class='fw-light text-white btn_result' id='result'>You score x seconds per letter</p>
         <p class="fw-light text-white btn_retry" id="retry">Click to start</p>
       </div>    
     </div>
@@ -126,6 +126,7 @@
     var currentIndex = 0;
     var currentLetter;
     var gameStarted = false;
+    var etat = 0;
 
 
 
@@ -135,12 +136,16 @@
 
     // Fonction pour démarrer le jeu
     function startGame() {
+      if (etat == 0){
         var retry = document.getElementById("retry");
         retry.style.opacity = 0;
         currentIndex = 0;
         gameStarted = true;
         startTime = new Date().getTime();
         nextLetter();
+        etat = 1;
+      }
+        
     }
 
     // Fonction pour générer la lettre suivante
@@ -157,17 +162,33 @@
         if (!gameStarted) {
             return;
         }
+        var txt_personalBest = document.getElementById("personalBest");
         var keyPressed = String.fromCharCode(event.keyCode);
         if (keyPressed.toUpperCase() === currentLetter) {
             currentIndex++;
             if (currentIndex === letters.length) {
                 var endTime = new Date().getTime();
                 var totalTime = (endTime - startTime) / 1000;
-                game.innerHTML = totalTime.toFixed(2) + " s";
+                var endTime = totalTime/26
+                var endTimeFinal = endTime.toFixed(2)
+                game.innerHTML = endTimeFinal + " sec per letter";
+                if (txt_personalBest.innerHTML == "" || endTimeFinal < Number(txt_personalBest.innerHTML)) {
+                  txt_personalBest.innerHTML = endTimeFinal;
+                  <?php if(isset($_SESSION["logged_in"]))
+                  {?>
+                        window.location = `../back/SaveRecord.php?score=${endTimeFinal}&idjeu=3&action=savepb`;    
+                  <?php
+                  }?>  
+                }
+                else
+                {
+                  <?php $nopb = true; ?>
+                }
                 gameStarted = false;
                 var retry = document.getElementById("retry");
                 retry.innerHTML = "Click to retry";
                 retry.style.opacity = 100;
+                etat = 0
                 //setTimeout(startGame, 3000);
             } else {
                 nextLetter();

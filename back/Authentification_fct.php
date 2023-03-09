@@ -71,6 +71,8 @@ function SignUp()
                 mysqli_query($conn, $query);
                 $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '2')";
                 mysqli_query($conn, $query);
+                $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '3')";
+                mysqli_query($conn, $query);
                 header("Location: ../front/Login.php");
             } else {
                 // Enregistrement échoué

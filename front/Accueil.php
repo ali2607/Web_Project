@@ -87,7 +87,7 @@
         </a>
 
         <!-- QTE -->
-        <a class="d-flex align-items-center mx-5 accueil_bloc_jeux" href="Jeu_Maze.php">
+        <a class="d-flex align-items-center mx-5 accueil_bloc_jeux" href="Jeu_QTE.php">
           <div class="text-center center">
             <img src="..\image\QTE.png" class="logo_size" alt="...">
             <div class="card-body text-center">
