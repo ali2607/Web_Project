@@ -89,10 +89,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="CountdownDashboard.php">Countdown</a>
                                     <a class="nav-link active" href="TimerDashboard.php">Timer</a>
-                                    <a class="nav-link" href="#">Jeux 1</a>
-                                    <a class="nav-link" href="#">Jeux 2</a>
-                                    <a class="nav-link" href="#">Jeux 3</a>
-                                    <a class="nav-link" href="#">Jeux 4</a>
+                                    <a class="nav-link" href="QTEDashboard.php">QTE</a>
                                 </nav>
                             </div>
 

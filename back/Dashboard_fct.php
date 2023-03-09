@@ -24,7 +24,7 @@
             $row = mysqli_fetch_assoc($result);
             $totalgames = $row['TotalGames'];
             $rank = array();
-            for ($i = 1; $i < $totalgames; $i++) {
+            for ($i = 1; $i <= $totalgames; $i++) {
             $query = "SELECT personalBest From score WHERE idUser = $idUser AND idJeu = $i AND personalBest IS NOT NULL";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) == 1){

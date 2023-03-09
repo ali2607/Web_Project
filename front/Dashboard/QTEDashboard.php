@@ -6,9 +6,9 @@
 
   include('../../back/Games_Dashboard_fct.php');
   $totalplayers = GetTotalPlayer();
-  $PB = GetPB(1);
-  $rank = GetRanking(1);
-  $leaderboard =GetLeaderBoard(1);
+  $PB = GetPB(3);
+  $rank = GetRanking(3);
+  $leaderboard =GetLeaderBoard(3);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,9 +88,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link active" href="CountdownDashboard.php">Countdown</a>
+                                    <a class="nav-link" href="CountdownDashboard.php">Countdown</a>
                                     <a class="nav-link" href="TimerDashboard.php">Timer</a>
-                                    <a class="nav-link" href="QTEDashboard.php">QTE</a>
+                                    <a class="nav-link active" href="#">QTE</a>
                                 </nav>
                             </div>
 
@@ -104,9 +104,9 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Countdown</h1>
+                        <h1 class="mt-4">QTE</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Here are all your stats when it comes to the Countdown game</li>
+                            <li class="breadcrumb-item active">Here are all your stats when it comes to the QTE game</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
