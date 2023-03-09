@@ -13,12 +13,12 @@
   $rankgood = true;
   try
   {
-    $rank = GetRanking(1);
+    $rank = GetRanking(3);
   }catch(Exception $e)
   {
     $rankgood = false; 
   }
-  $leaderboard =GetLeaderBoard(1);
+  $leaderboard =GetLeaderBoard(3);
   $nopb = true;
   include('head.php');  
 ?>
