@@ -175,7 +175,7 @@
                                     {
                                     ?>
                                     <div class="card text-white mb-4 color_top1">
-                                        <div class="card-body">You are the king! But will you remain so?</div>
+                                        <div class="card-body">Only someone very special can have such precision, impressive!</div>
                                     </div>
                                     <?php
                                     }
@@ -183,7 +183,7 @@
                                     {
                                     ?>
                                     <div class="card text-white mb-4 color_top2">
-                                        <div class="card-body">You can't stay in second place, can you?</div>
+                                        <div class="card-body">You deserve this second place, well played.</div>
                                     </div>
                                     <?php
                                     }

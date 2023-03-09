@@ -172,7 +172,7 @@
                                     {
                                     ?>
                                     <div class="card text-white mb-4 color_top1">
-                                        <div class="card-body">You are the king! But will you remain so?</div>
+                                        <div class="card-body">Wow, are you the fastest man alive?</div>
                                     </div>
                                     <?php
                                     }
@@ -180,7 +180,7 @@
                                     {
                                     ?>
                                     <div class="card text-white mb-4 color_top2">
-                                        <div class="card-body">You can't stay in second place, can you?</div>
+                                        <div class="card-body">You deserve this second place, well played.</div>
                                     </div>
                                     <?php
                                     }
