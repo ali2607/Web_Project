@@ -7,7 +7,15 @@
   include('../../back/Games_Dashboard_fct.php');
   $totalplayers = GetTotalPlayer();
   $PB = GetPB(1);
-  $rank = GetRanking(1);
+
+  $rankgood = true ;
+  try{
+    $rank = GetRanking(1);
+  }catch(Exception $e)
+  {
+    $rankgood = false;
+  }
+  
   $leaderboard =GetLeaderBoard(1);
 ?>
 <!DOCTYPE html>
@@ -113,7 +121,16 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your Personal Best 
                                         <br>
-                                        <h1 > <?php echo $PB;?>s</h1>
+                                        <h1 > 
+                                        <?php
+                                        if($PB != null)
+                                        {
+                                            echo $PB ;
+                                        }
+                                        else
+                                        {
+                                            echo '---';
+                                        }?>s</h1>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +138,16 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Your Rank 
                                         <br>
-                                        <h1 > <?php echo $rank;?>/<?php echo $totalplayers;?> </h1>
+                                        <h1 >  
+                                        <?php
+                                        if($rankgood)
+                                        {
+                                            echo $rank ;
+                                        }
+                                        else
+                                        {
+                                            echo '---';
+                                        }?>/<?php echo $totalplayers;?> </h1>
                                     </div>
                                 </div>
                             </div>
