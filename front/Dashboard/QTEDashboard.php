@@ -162,7 +162,74 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 
-                            <!-- IF ELSE POUR LE POURCENTAGE DE Ranking -->
+                            <?php
+                                if($rankgood)
+                                {
+                                    $place = $rank / $totalplayers ;
+                                    if($rank==1)
+                                    {
+                                    ?>
+                                    <div class="card text-white mb-4 color_top1">
+                                        <div class="card-body">You are the king! But will you remain so?</div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($rank==2)
+                                    {
+                                    ?>
+                                    <div class="card text-white mb-4 color_top2">
+                                        <div class="card-body">You can't stay in second place, can you?</div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($rank==3)
+                                    {
+                                    ?>
+                                    <div class="card text-white mb-4 color_top3">
+                                        <div class="card-body">You are on the podium, congratulations!</div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($place<0.25)
+                                    {
+                                    ?>    
+                                    <div class="card text-white mb-4 color_top25">
+                                        <div class="card-body">You are among the best players, well done!</div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($place<0.50)
+                                    {
+                                    ?>
+                                    <div class="card text-white mb-4 color_top50">
+                                        <div class="card-body">You are above the average, good job.</div>
+                                    </div>
+                                    <?php
+                                    }
+                                    elseif($place<0.75)
+                                    {
+                                    ?>
+                                    <div class="card text-white mb-4 color_top75">
+                                        <div class="card-body">Improve your scores to get above the top 50% of players.</div>
+                                    </div>
+                                    <?php
+                                    }                                
+                                    elseif($place<1)
+                                    {
+                                    ?>
+                                    <div class="card text-white mb-4 color_top100">
+                                        <div class="card-body">It could be worse... Oh wait.</div>
+                                    </div>
+                                    <?php
+                                    }                                
+                                }
+                                else
+                                {?>
+                                    <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body"><h3><?php echo 'maybe you should think about playing some games first?';?></h3> </div>
+                                    </div>
+                                <?php
+                                }?>
                             </div>
                         </div>
                         <div class="row">
