@@ -130,6 +130,13 @@ height:80px;
   font-size:22px;
 }
 
+.title_top2{
+  position:relative;
+  top:9px;
+  left:2px;
+  font-size:22px;
+}
+
 .title_rank{
   position:relative;
   vertical-align: middle;
