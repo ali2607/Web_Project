@@ -140,7 +140,7 @@
                                         <br>
                                         <h1 >                                         
                                         <?php
-                                        if($rankgood)
+                                        if($rankgood && $rank>0)
                                         {
                                             echo $rank ;
                                         }

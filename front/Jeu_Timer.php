@@ -182,7 +182,7 @@ include('head.php');
         <h5 class="card-title title_top">1. <?php if (isset($leaderboard[0])) {echo $leaderboard[0];} ?></h5>
         <h5 class="card-title title_top">2. <?php if (isset($leaderboard[1])) {echo $leaderboard[1];} ?></h5>
         <h5 class="card-title title_top">3. <?php if (isset($leaderboard[2])) {echo $leaderboard[2];} ?></h5>
-        <h5 class="card-title title_top">Your rank. <?php if ($rankgood) {echo $rank;} else {echo '---';} ?>/<?php echo $totalplayers; ?></h5>
+        <h5 class="card-title title_top">Your rank. <?php if ($rankgood && $rank>0) {echo $rank;} else {echo '---';} ?>/<?php echo $totalplayers; ?></h5>
       </div>
 
       <!-- Rules -->
