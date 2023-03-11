@@ -1,5 +1,4 @@
 <?php
-
 function getRankings()
 {
 
@@ -33,11 +32,8 @@ function getRankings()
             $username = $row["username"];
             $rank = $row["personalBest"];
 
-            if (!isset($rankings[$game_name])) {
-                $rankings[$game_name] = array();
-            }
-
-            $rankings[$game_name][$username] = $rank;
+            // Add row to the array
+            $rankings[] = array($game_name, $username, $rank);
         }
     }
 
@@ -47,10 +43,23 @@ function getRankings()
     // Return the rankings array
     return $rankings;
 }
+
 $rankings = getRankings();
 
-$json_data = json_encode($rankings);
-$file = 'data.json';
+// Open CSV file
+$file = "/Applications/XAMPP/xamppfiles/htdocs/Projet_Web/front/Dashboard/data.csv";
+$fp = fopen($file, 'w');
 
-file_put_contents($file, $json_data);
+// Write CSV header row
+fputcsv($fp, array('Game Name', 'Username', 'Score'));
+
+// Write data to CSV file
+foreach ($rankings as $row) {
+    fputcsv($fp, $row);
+}
+
+// Close CSV file
+fclose($fp);
+
+
 ?>
