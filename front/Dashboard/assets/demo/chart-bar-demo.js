@@ -16,7 +16,7 @@ fetch('data.csv')
       const values = row.split(',');
       if (rowIndex === 0) {
         // First row contains games
-        values.slice(1).forEach((game, index) => {
+        values.slice(0).forEach((game, index) => {
           if (index % 3 === 0) { // Only display every third game
             games.push(game);
           }
@@ -37,26 +37,32 @@ fetch('data.csv')
     // Create data labels and datasets for chart
     const labels = games;
     const datasets = [];
+    const datasets2 = [];
 
-    Object.keys(playerRanks).forEach((playerName, index) => {
-      const backgroundColor = `rgba(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},0.5)`;
-      const borderColor = `rgba(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},1)`;
-      const data = games.map(game => playerRanks[playerName][game]);
-      datasets.push({
-        label: playerName,
-        backgroundColor,
-        borderColor,
-        borderWidth: 1,
-        data,
-      });
+    const playerName = Object.keys(playerRanks)[0];
+    const playerName2 = Object.keys(playerRanks)[1];
+    const playerName3 = Object.keys(playerRanks)[2];
+    const color_cd = `rgba(${215},${125},${128},1)`;
+    const color_timer = `rgba(${113},${211},${167},1)`;
+    const color_QTE = `rgba(${172},${158},${201},1)`;
+    const backgroundColor = [color_cd,color_timer,color_QTE]
+    const borderColor = `rgba(${51},${51},${51},1)`;
+    const data = [games.map(game => playerRanks[playerName][game]),games.map(game => playerRanks[playerName2][game]),games.map(game => playerRanks[playerName3][game])];
+    datasets.push({
+      label: "Rank",
+      backgroundColor,
+      borderColor,
+      borderWidth: 1,
+      data,
     });
+  
 
     // Create chart
     const ctx = document.getElementById("myBarChart");
     const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels,
+        labels: ["Countdown", "Timer", "QTE"],
         datasets,
       },
       options: {
@@ -69,13 +75,13 @@ fetch('data.csv')
               display: false,
             },
             ticks: {
-              maxTicksLimit: games.length,
+              maxTicksLimit: 3,
             },
           }],
           yAxes: [{
             ticks: {
               min: 1,
-              max: 200,
+              max: 250,
               maxTicksLimit: 10,
             },
             gridLines: {
@@ -84,7 +90,7 @@ fetch('data.csv')
           }],
         },
         legend: {
-          display: true,
+          display: false,
         },
       },
     });
