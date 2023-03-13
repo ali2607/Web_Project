@@ -8,6 +8,36 @@
     $personalBest = "";
   }
 
+//===============================================================
+// Lecture du contenu du fichier CSV dans un tableau
+$csv = array_map('str_getcsv', file("../back/data2.csv"));
+
+// Parcours des lignes du fichier pour trouver la valeur à modifier
+foreach ($csv as $index => $row) {
+    if ($row[0] === 'PB3') {
+        // Récupération de la valeur souhaitée
+        $value = $row[1];
+        // Vérification et modification de la valeur si nécessaire
+        if ($value != $personalBest) {
+            $csv[$index][1] = $personalBest;
+        }
+        // Sortie de la boucle une fois la ligne trouvée
+        break;
+    }
+}
+
+// Ouverture du fichier CSV en écriture
+$file = fopen("../back/data2.csv", 'w');
+
+// Écriture des lignes modifiées dans le fichier CSV
+foreach ($csv as $row) {
+    fputcsv($file, $row);
+}
+
+// Fermeture du fichier CSV
+fclose($file);
+//===============================================================
+
   include('../back/Games_fct.php');
   $totalplayers = GetTotalPlayer();
   $rankgood = true;
@@ -20,6 +50,39 @@
   }
   $leaderboard =GetLeaderBoard(3);
   $nopb = true;
+
+  if ($rankgood){
+    //===============================================================
+    // Lecture du contenu du fichier CSV dans un tableau
+    $csv = array_map('str_getcsv', file("../back/data2.csv"));
+  
+    // Parcours des lignes du fichier pour trouver la valeur à modifier
+    foreach ($csv as $index => $row) {
+        if ($row[0] === 'rank3') {
+            // Récupération de la valeur souhaitée
+            $value = $row[1];
+            // Vérification et modification de la valeur si nécessaire
+            if ($value != $rank) {
+                $csv[$index][1] = $rank;
+            }
+            // Sortie de la boucle une fois la ligne trouvée
+            break;
+        }
+    }
+  
+    // Ouverture du fichier CSV en écriture
+    $file = fopen("../back/data2.csv", 'w');
+  
+    // Écriture des lignes modifiées dans le fichier CSV
+    foreach ($csv as $row) {
+        fputcsv($file, $row);
+    }
+  
+    // Fermeture du fichier CSV
+    fclose($file);
+    //===============================================================
+  }
+
   include('head.php');  
 ?>
 

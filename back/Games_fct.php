@@ -23,7 +23,8 @@ function GetPB($idJeu)
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
         $res = $row['personalBest'];
-        return $res;                   
+
+        return $res;                       
     }
 
 }

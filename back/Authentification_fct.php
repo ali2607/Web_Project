@@ -73,6 +73,33 @@ function SignUp()
                 mysqli_query($conn, $query);
                 $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '3')";
                 mysqli_query($conn, $query);
+
+                //===============================================================
+                // Lecture du contenu du fichier CSV dans un tableau
+                $csv = array_map('str_getcsv', file("data2.csv"));
+                // Parcours des lignes du fichier pour trouver la valeur à modifier
+                foreach ($csv as $index => $row) {
+                    if ($row[0] === 'totalplayers') {
+                        // Récupération de la valeur souhaitée
+                        $value = $row[1];
+                        $csv[$index][1] = $value+1;
+                        // Sortie de la boucle une fois la ligne trouvée
+                        break;
+                    }
+                }
+
+                // Ouverture du fichier CSV en écriture
+                $file = fopen("data2.csv", 'w');
+
+                // Écriture des lignes modifiées dans le fichier CSV
+                foreach ($csv as $row) {
+                    fputcsv($file, $row);
+                }
+
+                // Fermeture du fichier CSV
+                fclose($file);
+                //===============================================================
+
                 header("Location: ../front/Login.php");
             } else {
                 // Enregistrement échoué
@@ -104,6 +131,25 @@ function SignUp()
                     $_SESSION["logged_in"] = true;
                     $_SESSION["idUser"] = $row[0];
                     $_SESSION["username"] = $row[1];
+                    $userId = $_SESSION["idUser"];
+                    $file = fopen("data2.csv", "a");
+                    $data = array("idUser",$_SESSION["idUser"]);
+                    $pb1 = array("PB1","");
+                    $pb2 = array("PB2","");
+                    $pb3 = array("PB3","");
+                    $rank1 = array("rank1","");
+                    $rank2 = array("rank2","");
+                    $rank3 = array("rank3","");
+                    $totalplayers = array("totalplayers","");
+                    fputcsv($file, $data);
+                    fputcsv($file, $pb1);
+                    fputcsv($file, $pb2);
+                    fputcsv($file, $pb3);
+                    fputcsv($file, $rank1);
+                    fputcsv($file, $rank2);
+                    fputcsv($file, $rank3);
+                    fputcsv($file, $totalplayers);
+                    fclose($file);
                 }
                 mysqli_free_result($result);
     
@@ -124,6 +170,11 @@ function SignUp()
     function Logout()
     {
         session_start();
+        $file = fopen("data2.csv", "w");
+        file_put_contents("data2.csv", "");
+        fclose($file);
         session_destroy();
         header("Location: ../front/Accueil.php");
     }
+?>
+<script src="chat-bar-demo.js"></script>

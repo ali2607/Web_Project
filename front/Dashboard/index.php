@@ -6,8 +6,127 @@
   include('../../back/Dashboard_fct.php');
 
  $TotalPlayers=GetTotalPlayer();
+ //===============================================================
+  // Lecture du contenu du fichier CSV dans un tableau
+  $csv = array_map('str_getcsv', file("../../back/data2.csv"));
+
+  // Parcours des lignes du fichier pour trouver la valeur à modifier
+  foreach ($csv as $index => $row) {
+      if ($row[0] === 'totalplayers') {
+          // Récupération de la valeur souhaitée
+          $value = $row[1];
+          // Vérification et modification de la valeur si nécessaire
+          if ($value != $TotalPlayers) {
+              $csv[$index][1] = $TotalPlayers;
+          }
+          // Sortie de la boucle une fois la ligne trouvée
+          break;
+      }
+  }
+
+  // Ouverture du fichier CSV en écriture
+  $file = fopen("../../back/data2.csv", 'w');
+
+  // Écriture des lignes modifiées dans le fichier CSV
+  foreach ($csv as $row) {
+      fputcsv($file, $row);
+  }
+
+  // Fermeture du fichier CSV
+  fclose($file);
+  //===============================================================
 
  $rank = GetRanking();
+ $rank1 = $rank[1];
+ $rank2 = $rank[2];
+ $rank3 = $rank[3];
+ //===============================================================
+  // Lecture du contenu du fichier CSV dans un tableau
+  $csv = array_map('str_getcsv', file("../../back/data2.csv"));
+
+  // Parcours des lignes du fichier pour trouver la valeur à modifier
+  foreach ($csv as $index => $row) {
+      if ($row[0] === 'rank1') {
+          // Récupération de la valeur souhaitée
+          $value = $row[1];
+          // Vérification et modification de la valeur si nécessaire
+          if ($value != $rank1) {
+              $csv[$index][1] = $rank1;
+          }
+          // Sortie de la boucle une fois la ligne trouvée
+          break;
+      }
+  }
+
+  // Ouverture du fichier CSV en écriture
+  $file = fopen("../../back/data2.csv", 'w');
+
+  // Écriture des lignes modifiées dans le fichier CSV
+  foreach ($csv as $row) {
+      fputcsv($file, $row);
+  }
+
+  // Fermeture du fichier CSV
+  fclose($file);
+  //===============================================================
+   //===============================================================
+  // Lecture du contenu du fichier CSV dans un tableau
+  $csv = array_map('str_getcsv', file("../../back/data2.csv"));
+
+  // Parcours des lignes du fichier pour trouver la valeur à modifier
+  foreach ($csv as $index => $row) {
+      if ($row[0] === 'rank2') {
+          // Récupération de la valeur souhaitée
+          $value = $row[1];
+          // Vérification et modification de la valeur si nécessaire
+          if ($value != $rank2) {
+              $csv[$index][1] = $rank2;
+          }
+          // Sortie de la boucle une fois la ligne trouvée
+          break;
+      }
+  }
+
+  // Ouverture du fichier CSV en écriture
+  $file = fopen("../../back/data2.csv", 'w');
+
+  // Écriture des lignes modifiées dans le fichier CSV
+  foreach ($csv as $row) {
+      fputcsv($file, $row);
+  }
+
+  // Fermeture du fichier CSV
+  fclose($file);
+  //===============================================================
+   //===============================================================
+  // Lecture du contenu du fichier CSV dans un tableau
+  $csv = array_map('str_getcsv', file("../../back/data2.csv"));
+
+  // Parcours des lignes du fichier pour trouver la valeur à modifier
+  foreach ($csv as $index => $row) {
+      if ($row[0] === 'rank3') {
+          // Récupération de la valeur souhaitée
+          $value = $row[1];
+          // Vérification et modification de la valeur si nécessaire
+          if ($value != $rank3) {
+              $csv[$index][1] = $rank3;
+          }
+          // Sortie de la boucle une fois la ligne trouvée
+          break;
+      }
+  }
+
+  // Ouverture du fichier CSV en écriture
+  $file = fopen("../../back/data2.csv", 'w');
+
+  // Écriture des lignes modifiées dans le fichier CSV
+  foreach ($csv as $row) {
+      fputcsv($file, $row);
+  }
+
+  // Fermeture du fichier CSV
+  fclose($file);
+  //===============================================================
 
 ?>
 <!DOCTYPE html>
@@ -292,7 +411,7 @@
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script type="module" src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
