@@ -248,7 +248,7 @@ include('head.php');
       </div>
 
       <!-- Rules -->
-      <div class="bloc_jeux2" href="Jeu_Countdown.php">
+      <div class="bloc_jeux2">
         <div class="">
           <h5 class="card-title title_rules">Rules</h5>
           <h5 class="card-title title_text">Timer is a game that tests your ability to stop a timer as close to a given number as possible. Click once to start the timer, and then click again as close to the indicated number as possible to stop it. Beware, the timer disappears at 5 seconds!</h5>
@@ -256,15 +256,24 @@ include('head.php');
       </div>
 
       <!-- Statistics -->
-      <div class="bloc_jeux2" href="Jeu_Countdown.php">
+      <div class="bloc_jeux3">
         <div class="">
           <h5 class="card-title title_rules">Statistics</h5>
-          <h5 class="card-title title_text"></h5>
+          <div>
+              <div class="card-body" style="background-color:(153,205,254,0.1);"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
   <!-- /.row -->
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+  <script src="chart-area-timer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
   <!-- /.container -->
 
 </body>

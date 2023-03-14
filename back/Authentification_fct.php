@@ -133,6 +133,7 @@ function SignUp()
                     $_SESSION["username"] = $row[1];
                     $userId = $_SESSION["idUser"];
                     $file = fopen("data2.csv", "a");
+                    $val = array("DATAS","VAL");
                     $data = array("idUser",$_SESSION["idUser"]);
                     $pb1 = array("PB1","");
                     $pb2 = array("PB2","");
@@ -141,6 +142,7 @@ function SignUp()
                     $rank2 = array("rank2","");
                     $rank3 = array("rank3","");
                     $totalplayers = array("totalplayers","");
+                    fputcsv($file, $val);
                     fputcsv($file, $data);
                     fputcsv($file, $pb1);
                     fputcsv($file, $pb2);

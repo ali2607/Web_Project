@@ -86,7 +86,7 @@ height:80px;
 
 .bloc_jeux2{
   width:900px;
-  height:175px;
+  height:100px;
   background-color:#99cdff;
   color:inherit;
   text-decoration:none;
@@ -94,6 +94,18 @@ height:80px;
   margin-left:75px;
   margin-right:75px;
   margin-bottom:100px;        
+}
+
+.bloc_jeux3{
+  width:900px;
+  height:400px;
+  background-color:#99cdff;
+  color:inherit;
+  text-decoration:none;
+  transition: transform 0.5s;
+  margin-left:75px;
+  margin-right:75px;
+  margin-bottom:100px;       
 }
 
 .title_score{
