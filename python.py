@@ -7,3 +7,8 @@ for i in range(1, 201):
     print("(",i,",","'",1,"'",",", "'",score_cd,"'","),")
     print("(",i,",","'",2,"'",",", "'",score_timer,"'","),")
     print("(",i,",","'",3,"'",",", "'",score_qte,"'","),")
+
+for i in range(1, 201):
+    username = "user" + str(i)
+    password = "test"
+    print("(",i,",","'",username,"'",",", "'",password,"'","),")
