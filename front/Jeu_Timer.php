@@ -231,7 +231,7 @@ include('head.php');
   <div class="container">
     <div class="row justify-content-center">
       <!-- Personal Record -->
-      <a class="bloc_jeux1" href="Jeu_Countdown.php">
+      <a class="bloc_jeux1">
         <div class="text-center center">
           <h5 class="card-title title_score">Score</h5>
           <h5 class="card-title title_pr">Personal record :</h5>
@@ -239,7 +239,7 @@ include('head.php');
         </div>
       </a>
       <!-- Leaderboard -->
-      <div class="bloc_jeux1" href="Jeu_Timer.php">
+      <div class="bloc_jeux1">
         <h5 class="card-title title_ldb">Leaderboard :</h5>
         <h5 class="card-title title_top">1. <?php if (isset($leaderboard[0])) {echo $leaderboard[0];} ?></h5>
         <h5 class="card-title title_top">2. <?php if (isset($leaderboard[1])) {echo $leaderboard[1];} ?></h5>
