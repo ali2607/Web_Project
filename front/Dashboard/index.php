@@ -38,7 +38,11 @@
 
  $rank = GetRanking();
  if (count($rank) != 0){
-    $rank1 = $rank[1];
+    if(array_key_exists(1,$rank))
+    {
+        $rank1 = $rank[1];
+    
+    
 
  //===============================================================
   // Lecture du contenu du fichier CSV dans un tableau
@@ -68,8 +72,11 @@
 
   // Fermeture du fichier CSV
   fclose($file);
+  }
   //===============================================================
     if (count($rank) != 1){
+        if(array_key_exists(2,$rank))
+        {
         $rank2 = $rank[2];
    //===============================================================
   // Lecture du contenu du fichier CSV dans un tableau
@@ -99,8 +106,11 @@
 
   // Fermeture du fichier CSV
   fclose($file);
+}
   //===============================================================
   if (count($rank) != 2){
+    if(array_key_exists(3,$rank))
+    {
     $rank3 = $rank[3];
    //===============================================================
   // Lecture du contenu du fichier CSV dans un tableau
@@ -130,6 +140,7 @@
 
   // Fermeture du fichier CSV
   fclose($file);
+ }
   //===============================================================
 }
 }
@@ -165,19 +176,6 @@
           <li class="nav-item">
             <a class="nav-link active" href="#">Dashboard</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Profil</a></li>
-              <li><a class="dropdown-item" href="#">Personal Records</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
         </ul>
         <div class="form-inline ms-auto">
             <?php
