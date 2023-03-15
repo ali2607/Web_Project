@@ -74,6 +74,10 @@ function SignUp()
                 $query = "INSERT INTO score (idUser, idJeu) VALUES ('$idUser', '3')";
                 mysqli_query($conn, $query);
 
+                $file = fopen("data2.csv", "w");
+                file_put_contents("data2.csv", "");
+                fclose($file);
+
                 //===============================================================
                 // Lecture du contenu du fichier CSV dans un tableau
                 $csv = array_map('str_getcsv', file("data2.csv"));
@@ -132,6 +136,9 @@ function SignUp()
                     $_SESSION["idUser"] = $row[0];
                     $_SESSION["username"] = $row[1];
                     $userId = $_SESSION["idUser"];
+                    $file = fopen("data2.csv", "w");
+                    file_put_contents("data2.csv", "");
+                    fclose($file);
                     $file = fopen("data2.csv", "a");
                     $val = array("DATAS","VAL");
                     $data = array("idUser",$_SESSION["idUser"]);
