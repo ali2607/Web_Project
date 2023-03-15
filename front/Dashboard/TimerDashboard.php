@@ -6,13 +6,8 @@
   include('../../back/Games_Dashboard_fct.php');
   $totalplayers = GetTotalPlayer();
   $PB = GetPB(2);
-  $rankgood = true ;
-  try{
-    $rank = GetRanking(2);
-  }catch(Exception $e)
-  {
-    $rankgood = false;
-  }
+  $rank = GetRanking(2);
+
   $leaderboard =GetLeaderBoard(2);
 ?>
 <!DOCTYPE html>
@@ -139,7 +134,7 @@
                                         <br>
                                         <h1 >                                         
                                         <?php
-                                        if($rankgood && $rank>0)
+                                        if($PB != null && $rank>0)
                                         {
                                             echo $rank ;
                                         }
@@ -162,7 +157,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                             <?php
-                                if($rankgood)
+                                if($PB != null)
                                 {
                                     $place = $rank / $totalplayers ;
                                     if($rank==1)
